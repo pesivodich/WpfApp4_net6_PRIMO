@@ -18,6 +18,10 @@ namespace WpfApp4_net6.Repository
 
         [Required]
         public decimal Price { get; set; }
+
+        public string Des { get; set; }
+
+        public string HoangMinh { get; set; }
     }
 
 }

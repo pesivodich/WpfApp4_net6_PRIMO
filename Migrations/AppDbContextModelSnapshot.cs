@@ -24,6 +24,14 @@ namespace WpfApp4_net6.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Des")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("HoangMinh")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");

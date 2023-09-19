@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Autofac;
+using Autofac.Core;
+using Autofac.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -8,6 +13,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
 
 
@@ -21,33 +27,69 @@ namespace WpfApp4_net6
         // kho9i tao cst su dung host de cai dat DI
         // Ihost con co tac dung ghi log...
         // tao cac services cua ung dung
+        string connectionString = "server=localhost;port=3306;database=netcore_2;user=root;password=;";
         public static IHost? AppHost { get; private set; }
         public App()
         {
             AppHost = Host.CreateDefaultBuilder()
-                .ConfigureServices((hostContext, services) => 
+                .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+                .ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<MainWindow>();
-                    services.AddTransient<IDataAccess, DataAccess>();
+                    //services.AddTransient<IDataAccess,DataAccess>();
+                    services.AddDbContext<AppDbContext>(options =>
+                         options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+
                 })
                 .Build();
+
         }
+
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterModule(new DI.AppModule());
+            //var builder = new ContainerBuilder();
+            //builder.RegisterType<DataAccess>().As<IDataAccess>().InstancePerLifetimeScope();
+
+
+        }
+        private IContainer _container;
         protected override async void OnStartup(StartupEventArgs e)
         {
 
-            await AppHost!.StartAsync();
 
-            var startupForm = AppHost.Services.GetRequiredService<MainWindow>();
-            startupForm.Show();
 
-            using (var context = new AppDbContext())
+
+            var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
+                .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+                .Options;
+
+            using (var context = new AppDbContext(dbContextOptions))
             {
                 context.Database.EnsureCreated();
+
             }
+
 
             base.OnStartup(e);
 
-        }
+            var builder = new ContainerBuilder();
+            builder.RegisterType<WeatherModel>().As<IWeatherModel>().InstancePerLifetimeScope(); 
+            builder.RegisterType<DataAccess>().As<IDataAccess>().InstancePerLifetimeScope(); 
+            //builder.RegisterType<Repository>().AsImplementedInterfaces().InstancePerLifetimeScope();
 
+            // Add the MainWindowclass and later resolve
+            builder.RegisterType<MainWindow>().AsSelf();
+
+            var container = builder.Build();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var window = scope.Resolve<MainWindow>();
+                window.Show();
+            }
+
+
+        }
     }
 }

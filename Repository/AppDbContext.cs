@@ -9,11 +9,18 @@ namespace WpfApp4_net6.Repository
 {
     public class AppDbContext : DbContext
     {
+        string connectionString = "server=localhost;port=3306;database=netcore_2;user=root;password=;";
+
+
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+        : base(options)
+        { }
         public DbSet<Product> Products { get; set; }
+
+      
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "server=localhost;port=3306;database=netcore_2;user=root;password=;";
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
     }

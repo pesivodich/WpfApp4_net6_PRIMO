@@ -8,7 +8,7 @@ namespace WpfApp4_net6.Repository
 {
     public interface IDataAccess
     {
-        public string GetTitle();
+         string GetTitle();
     }
     public class DataAccess : IDataAccess
     {
@@ -17,10 +17,11 @@ namespace WpfApp4_net6.Repository
 
         //private readonly string _age;
 
-        public DataAccess( )
+       public DataAccess() : base()
         {
-         
+
         }
+
         
         public string GetTitle()
         {
