@@ -13,7 +13,7 @@ namespace WpfApp4_net6.Repository
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "server=localhost;port=3306;database=netcore;user=root;password=;";
+            string connectionString = "server=localhost;port=3306;database=netcore_2;user=root;password=;";
             optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
     }
