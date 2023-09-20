@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace WpfApp4_net6.Repository
+namespace WpfApp4_net6.Models
+
 {
   
     public class Product

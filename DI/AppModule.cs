@@ -25,7 +25,6 @@ namespace WpfApp4_net6.DI
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<WeatherModel>().As<IWeatherModel>().InstancePerLifetimeScope();
-            builder.RegisterType<DataAccess>().As<IDataAccess>().InstancePerLifetimeScope();
             builder.RegisterType<ProductModel>().As<IProductModel>().InstancePerLifetimeScope();
 
         }

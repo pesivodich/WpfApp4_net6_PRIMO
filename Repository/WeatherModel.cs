@@ -8,16 +8,14 @@ using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using WpfApp4_net6.Repository;
-
-
+using WpfApp4_net6.DataModel;
 
 /// <summary>
 /// Đăng ký các dịch vụ dùng cho việc tạo và xử lý sự kiện thông qua autofac
 /// <para>Created at: 19/09/2023</para>
 /// <para>Created by: Sonnc</para>
 /// </summary>
-namespace WpfApp4_net6.Models
+namespace WpfApp4_net6.Repository
 {
 
 
@@ -25,7 +23,7 @@ namespace WpfApp4_net6.Models
     {
       string GetWeatherDetail();
     }
-    public class WeatherModel :BaseModel, IWeatherModel
+    public class WeatherModel :BaseRepository, IWeatherModel
     {
        
         public WeatherModel()
@@ -36,8 +34,14 @@ namespace WpfApp4_net6.Models
         public string GetWeatherDetail()
         {
           
-            return _context.Products.FirstOrDefault()?.Name;
+            var product = _context.Products.FirstOrDefault(x=> x.ProductId == 2)?.Des;
 
+            if (product == null)
+            {
+                return "Khong co data";
+            }
+
+            return product;
         }
 
     }

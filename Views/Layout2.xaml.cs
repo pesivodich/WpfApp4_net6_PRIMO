@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,34 +11,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
 using WpfApp4_net6.ViewModels;
 
 namespace WpfApp4_net6.Views
 {
     /// <summary>
-    /// Interaction logic for Layout1.xaml
+    /// Interaction logic for Layout2.xaml
     /// </summary>
-    public partial class Layout1 : Window
+    public partial class Layout2 : Window
     {
-        public Layout1()
+        public Layout2()
         {
-
             InitializeComponent();
-
-            IProductModel productModel = new ProductModel();
-
-            Layout1ViewModel layout1ViewModel = new Layout1ViewModel(productModel);
-
-            DataContext = layout1ViewModel;
             
-        }
+            IWeatherModel _weatherModel = new WeatherModel();
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Layout2 layout2 = new Layout2();
-            layout2.Show();
+            var layout2ViewModel = new Layout2ViewModel(_weatherModel);
+
+            DataContext = layout2ViewModel;
+
         }
     }
 }

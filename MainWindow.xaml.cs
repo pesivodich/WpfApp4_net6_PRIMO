@@ -17,7 +17,9 @@ using System.Windows.Shapes;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
 using WpfApp4_net6.Views;
-using tblProduct = WpfApp4_net6.Repository.Product;
+//using tblProduct = WpfApp4_net6.Repository.Product;
+using WpfApp4_net6.Models.WorkModels;
+using System.ComponentModel;
 
 namespace WpfApp4_net6
 {
@@ -26,22 +28,21 @@ namespace WpfApp4_net6
     /// </summary>
     public partial class MainWindow : Window
     {
-      
-        private readonly IProductModel _productModel;
-  
-        public MainWindow(IProductModel  productModel)
+
+    
+
+        public MainWindow()
         {
+            
             InitializeComponent();
-            _productModel = productModel;
 
-
-            List<Product> products = new List<Product>();
-
-            products = _productModel.GetList();
-
-
+           
         }
 
-      
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Layout1 layout = new Layout1();
+            layout.Show();
+        }
     }
 }

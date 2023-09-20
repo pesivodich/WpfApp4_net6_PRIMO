@@ -23,12 +23,10 @@
 
   <ItemGroup>
     <Folder Include="Dialogs\" />
-    <Folder Include="Models\WorkModels\" />
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
     <Folder Include="Untils\" />
     <Folder Include="UserControls\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>
