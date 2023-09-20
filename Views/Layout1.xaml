@@ -7,7 +7,32 @@
         mc:Ignorable="d"
         Title="Layout1" Height="450" Width="800">
     <Grid>
-        <TextBlock x:Name="Title_1" HorizontalAlignment="Center" Margin="0,105,0,0" TextWrapping="Wrap" Text="{Binding Title}" VerticalAlignment="Top" FontSize="20" />
-        <Button  Content="Khoi dong layout 2" Click="Button_Click" />
+        <TextBlock x:Name="Title_1" HorizontalAlignment="Stretch" Margin="0,10,0,0" TextWrapping="Wrap" Text="PRIMO LAYOUT 1" TextAlignment="Center" VerticalAlignment="Top" FontSize="20" Background="#bdd8ff" />
+        <Border BorderBrush="Black" BorderThickness="1">
+            <Grid HorizontalAlignment="Left" Height="150" Width="300" Margin="10 40 10 10" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Stretch" Background="#014099" Text="Title 1" TextAlignment="Center" Foreground="White" Grid.Row="0"/>
+                <ListView Grid.Row="1" Height="130">
+                    
+                </ListView>
+            </Grid>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" >
+            <Grid HorizontalAlignment="Left" Height="200" Width="200" Margin="320 40 10 10" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock HorizontalAlignment="Stretch" Background="#014099" Text="Title 2" TextAlignment="Center" Foreground="White"/>
+                <ListView Grid.Row="1" Height="180">
+
+                </ListView>
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>

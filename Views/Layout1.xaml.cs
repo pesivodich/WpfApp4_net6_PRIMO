@@ -36,10 +36,6 @@ namespace WpfApp4_net6.Views
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Layout2 layout2 = new Layout2();
-            layout2.Show();
-        }
+       
     }
 }
