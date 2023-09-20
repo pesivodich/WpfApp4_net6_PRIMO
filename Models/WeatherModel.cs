@@ -8,31 +8,37 @@ using System.Net.NetworkInformation;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp4_net6.Repository;
 
+
+
+/// <summary>
+/// Đăng ký các dịch vụ dùng cho việc tạo và xử lý sự kiện thông qua autofac
+/// <para>Created at: 19/09/2023</para>
+/// <para>Created by: Sonnc</para>
+/// </summary>
 namespace WpfApp4_net6.Models
 {
+
+
     public interface IWeatherModel
     {
       string GetWeatherDetail();
     }
-    public class WeatherModel :  IWeatherModel
+    public class WeatherModel :BaseModel, IWeatherModel
     {
-        private readonly ILogger<WeatherModel> _logger;
-        private string _className = "";
-        public WeatherModel(
-           
-        ) 
+       
+        public WeatherModel()
         {
            
-
         }
-    
-
+   
         public string GetWeatherDetail()
         {
-            return "Hoàng Minh đi ngủ đi";
-        }
+          
+            return _context.Products.FirstOrDefault()?.Name;
 
+        }
 
     }
 }

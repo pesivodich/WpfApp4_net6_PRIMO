@@ -24,9 +24,11 @@ namespace WpfApp4_net6
     /// </summary>
     public partial class App : Application
     {
-        // kho9i tao cst su dung host de cai dat DI
-        // Ihost con co tac dung ghi log...
-        // tao cac services cua ung dung
+        /// <summary>
+        /// Khởi tạo AppHost để đăng ký các dịch vụ và thực hiện DI
+        /// <para>Created at: 19/09/2023</para>
+        /// <para>Created by: Sonnc</para>
+        /// </summary> 
         string connectionString = "server=localhost;port=3306;database=netcore_2;user=root;password=;";
         public static IHost? AppHost { get; private set; }
         public App()
@@ -36,29 +38,21 @@ namespace WpfApp4_net6
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<MainWindow>();
-                    //services.AddTransient<IDataAccess,DataAccess>();
                     services.AddDbContext<AppDbContext>(options =>
                          options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
                 })
                 .Build();
-
         }
 
-        public void ConfigureContainer(ContainerBuilder containerBuilder)
-        {
-            containerBuilder.RegisterModule(new DI.AppModule());
-            //var builder = new ContainerBuilder();
-            //builder.RegisterType<DataAccess>().As<IDataAccess>().InstancePerLifetimeScope();
-
-
-        }
-        private IContainer _container;
+        //public void ConfigureContainer(ContainerBuilder containerBuilder)
+        //{
+        //    containerBuilder.RegisterModule(new DI.AppModule());
+        //    //var builder = new ContainerBuilder();
+        //    //builder.RegisterType<DataAccess>().As<IDataAccess>().InstancePerLifetimeScope();
+        //}
         protected override async void OnStartup(StartupEventArgs e)
         {
-
-
-
 
             var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
                 .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
@@ -67,16 +61,13 @@ namespace WpfApp4_net6
             using (var context = new AppDbContext(dbContextOptions))
             {
                 context.Database.EnsureCreated();
-
             }
-
 
             base.OnStartup(e);
 
             var builder = new ContainerBuilder();
-            builder.RegisterType<WeatherModel>().As<IWeatherModel>().InstancePerLifetimeScope(); 
-            builder.RegisterType<DataAccess>().As<IDataAccess>().InstancePerLifetimeScope(); 
-            //builder.RegisterType<Repository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+
+            builder.RegisterModule(new DI.AppModule());
 
             // Add the MainWindowclass and later resolve
             builder.RegisterType<MainWindow>().AsSelf();
@@ -88,7 +79,6 @@ namespace WpfApp4_net6
                 var window = scope.Resolve<MainWindow>();
                 window.Show();
             }
-
 
         }
     }

@@ -11,21 +11,22 @@ namespace WpfApp4_net6.DI
 {
     /// <summary>
     /// Đăng ký các dịch vụ dùng cho việc tạo và xử lý sự kiện thông qua autofac
-    /// <para>Created at: 10/07/2020</para>
-    /// <para>Created by: QuyPN</para>
+    /// <para>Created at: 19/09/2023</para>
+    /// <para>Created by: Sonnc</para>
     /// </summary>
     public class AppModule : Autofac.Module
     {
         /// <summary>
         /// Ghi đè phương thức load của autofac để đăng ký dịch vụ
-        /// <para>Created at: 10/07/2020</para>
-        /// <para>Created by: QuyPN</para>
+        /// <para>Created at: 19/09/2023</para>
+        /// <para>Created by: Sonnc</para>
         /// </summary>
         /// <param name="builder">builder dùng để đăng ký dịch vụ</param>
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<WeatherModel>().As<IWeatherModel>().InstancePerLifetimeScope();
             builder.RegisterType<DataAccess>().As<IDataAccess>().InstancePerLifetimeScope();
+            builder.RegisterType<ProductModel>().As<IProductModel>().InstancePerLifetimeScope();
 
         }
     }

@@ -12,10 +12,7 @@ namespace WpfApp4_net6.Repository
     }
     public class DataAccess : IDataAccess
     {
-        //private readonly String _name;
-        //private readonly string _lastname;
-
-        //private readonly string _age;
+        
 
        public DataAccess() : base()
         {
@@ -25,7 +22,7 @@ namespace WpfApp4_net6.Repository
         
         public string GetTitle()
         {
-            return "Hoang Minh Hay Bi Me La";
+            return "";
         }
 
     }
