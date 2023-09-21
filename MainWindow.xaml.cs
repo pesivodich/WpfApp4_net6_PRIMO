@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
 using WpfApp4_net6.Views;
-//using tblProduct = WpfApp4_net6.Repository.Product;
+//using tblProduct = WpfApp4_net6.Repository.Product;á
 using WpfApp4_net6.Models.WorkModels;
 using System.ComponentModel;
 
@@ -28,15 +28,10 @@ namespace WpfApp4_net6
     /// </summary>
     public partial class MainWindow : Window
     {
-
-    
-
         public MainWindow()
         {
-            
+        
             InitializeComponent();
-
-           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -1,9 +1,11 @@
 ﻿using Autofac;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfApp4_net6.DataModel;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
 
@@ -25,8 +27,10 @@ namespace WpfApp4_net6.DI
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<WeatherModel>().As<IWeatherModel>().InstancePerLifetimeScope();
-            builder.RegisterType<ProductModel>().As<IProductModel>().InstancePerLifetimeScope();
-
+            builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            
         }
     }
 }

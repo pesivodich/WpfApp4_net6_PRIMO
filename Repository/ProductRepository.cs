@@ -4,13 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WpfApp4_net6.Models.WorkModels;
+using tblProduct = WpfApp4_net6.Models.Product;
 
 namespace WpfApp4_net6.Repository
 {
-    public class ProductModel : BaseRepository, IProductModel
+    public interface IProductRepository
+    {
+        public List<ProductWorkModel> GetList();
+
+        public ProductWorkModel GetFirst();
+
+        public int AddNewProduct(ProductWorkModel product);
+        public string GetFirstNameRandom();
+    }
+    public class ProductRepository : BaseRepository, IProductRepository
     {
 
-        public ProductModel()
+        public ProductRepository()
         {
 
         }
@@ -40,6 +50,36 @@ namespace WpfApp4_net6.Repository
            ).First();
 
             return restult;
+        }
+
+
+        public string GetFirstNameRandom()
+        {
+            string restult = _context.Products.First().Name + "Get From Product";
+
+            return restult;
+        }
+
+
+        public int AddNewProduct (ProductWorkModel product)
+        {
+            if (product == null) {
+                return 500;   
+            }
+
+            tblProduct newProduct = new tblProduct()
+            {
+                ProductId = product.ProductId,
+                Name = product.Name,    
+                Price = product.Price,
+                Des = product.Des,
+                HoangMinh = product.HoangMinh
+            };
+
+            _context.Products.Add(newProduct);
+            _context.SaveChanges();
+
+            return 200;
         }
 
     }

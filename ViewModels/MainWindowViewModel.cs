@@ -9,11 +9,10 @@ namespace WpfApp4_net6.ViewModels
 {
     public class MainWindowViewModel 
     {
-        private readonly IProductModel _productModel;
-
-        public MainWindowViewModel(IProductModel productModel )
+       
+        public MainWindowViewModel( )
         {
-            _productModel = productModel;
+           
         }
     }
 }

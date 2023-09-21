@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,6 +14,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfApp4_net6.DataModel;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
 
@@ -39,11 +41,15 @@ namespace WpfApp4_net6
                 {
                     services.AddSingleton<MainWindow>();
                     services.AddDbContext<AppDbContext>(options =>
-                         options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+                         options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+                         , ServiceLifetime.Transient);
+                    services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
                 })
                 .Build();
         }
+     
 
         //public void ConfigureContainer(ContainerBuilder containerBuilder)
         //{
@@ -54,14 +60,14 @@ namespace WpfApp4_net6
         protected override async void OnStartup(StartupEventArgs e)
         {
 
-            var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
-                .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-                .Options;
+            //var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
+            //    .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+            //    .Options;
 
-            using (var context = new AppDbContext(dbContextOptions))
-            {
-                context.Database.EnsureCreated();
-            }
+            //using (var context = new AppDbContext(dbContextOptions))
+            //{
+            //    context.Database.EnsureCreated();
+            //}
 
             base.OnStartup(e);
 
@@ -72,11 +78,15 @@ namespace WpfApp4_net6
             // Add the MainWindowclass and later resolve
             builder.RegisterType<MainWindow>().AsSelf();
 
+            //builder.RegisterType<MainWindow>().AsSelf();
+
             var container = builder.Build();
 
             using (var scope = container.BeginLifetimeScope())
             {
                 var window = scope.Resolve<MainWindow>();
+              
+
                 window.Show();
             }
 

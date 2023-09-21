@@ -5,34 +5,125 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp4_net6.Views"
         mc:Ignorable="d"
-        Title="Layout1" Height="450" Width="800">
+        Title="Layout1" Height="600" Width="1000">
     <Grid>
         <TextBlock x:Name="Title_1" HorizontalAlignment="Stretch" Margin="0,10,0,0" TextWrapping="Wrap" Text="PRIMO LAYOUT 1" TextAlignment="Center" VerticalAlignment="Top" FontSize="20" Background="#bdd8ff" />
         <Border BorderBrush="Black" BorderThickness="1">
-            <Grid HorizontalAlignment="Left" Height="150" Width="300" Margin="10 40 10 10" VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Left" Height="200" Width="300" Margin="10 40 10 10" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Stretch" Background="#014099" Text="Title 1" TextAlignment="Center" Foreground="White" Grid.Row="0"/>
-                <ListView Grid.Row="1" Height="130">
-                    
+                <ListView Grid.Row="1" Height="170" ItemsSource="{Binding People}"  Background="Green">
+                    <GridView>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                        <!-- Cột 1: Name -->
+                        <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}" />
+                        <!-- Cột 2: Age -->
+                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" />
+                        <!-- Cột 3: Address -->
+                    </GridView>
                 </ListView>
             </Grid>
         </Border>
 
         <Border BorderBrush="Black" BorderThickness="1" >
-            <Grid HorizontalAlignment="Left" Height="200" Width="200" Margin="320 40 10 10" VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Left" Height="280" Width="200" Margin="320 40 10 10" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Stretch" Background="#014099" Text="Title 2" TextAlignment="Center" Foreground="White"/>
-                <ListView Grid.Row="1" Height="180">
+                <ListView Grid.Row="1" Height="250">
 
                 </ListView>
             </Grid>
         </Border>
+        <Grid HorizontalAlignment="Left" Height="50" Width="200" Margin="530 40 10 10" VerticalAlignment="Top" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24" />
+                <RowDefinition Height="24"/>
+            </Grid.RowDefinitions>
 
+            <Grid  Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Background="Blue" Foreground="White" Text="Code CD" Margin="0 0 5 0" Grid.Column="0" TextAlignment="Center"/>
+                <TextBox Grid.Column="1"  Background="Yellow"/>
+            </Grid>
+            <Grid  Grid.Row="1" Margin="0 1 0 0 " >
+                <Grid  Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Background="Blue" Foreground="White" Text="Code CD" Margin="0 0 5 0" Grid.Column="0" TextAlignment="Center"/>
+                    <TextBox Grid.Column="1"  Background="Yellow"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="210" Width="200" Margin="530 100 10 10" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border  BorderBrush="Black" BorderThickness="1" Margin="0 0 1 0" Grid.Column="0">
+                <Grid>
+
+                </Grid>
+            </Border>
+            <Border  BorderBrush="Black" BorderThickness="1"  Grid.Column="1">
+                <Grid>
+
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Background="red" Width="150" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750 40 0 0">
+            
+        </Grid>
+        <TextBlock  Background="Green" Text="Button Content" Foreground="White" TextAlignment="Center" Padding="5" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750 280 0 0" />
+         
+        
+        
+        <Grid HorizontalAlignment="Left" Height="80" Width="300" Margin="10 240 0 0"  VerticalAlignment="Top" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24" />
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="24"/>
+            </Grid.RowDefinitions>
+
+            <Grid  Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Background="Blue" Foreground="White" Text="Code CD" Margin="0 0 5 0" Grid.Column="0" TextAlignment="Center"/>
+                <TextBox Grid.Column="1"  Background="Yellow"/>
+            </Grid>
+            <Grid  Grid.Row="1" Margin="0 1 0 0 " >
+                <Grid  Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Background="Blue" Foreground="White" Text="Code CD" Margin="0 0 5 0" Grid.Column="0" TextAlignment="Center"/>
+                    <TextBox Grid.Column="1"  Background="Yellow"/>
+                </Grid>
+            </Grid> 
+            <Grid  Grid.Row="2" Margin="0 1 0 0 " >
+                <Grid  Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Background="Blue" Foreground="White" Text="Code CD" Margin="0 0 5 0" Grid.Column="0" TextAlignment="Center"/>
+                    <TextBox Grid.Column="1"  Background="Yellow"/>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

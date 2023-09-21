@@ -25,16 +25,17 @@ namespace WpfApp4_net6.Repository
     }
     public class WeatherModel :BaseRepository, IWeatherModel
     {
+      
        
-        public WeatherModel()
+        public WeatherModel( )
         {
-           
+            
         }
    
         public string GetWeatherDetail()
         {
           
-            var product = _context.Products.FirstOrDefault(x=> x.ProductId == 2)?.Des;
+            var product = _context.Products.FirstOrDefault(x=> x.ProductId == 3)?.Des;
 
             if (product == null)
             {

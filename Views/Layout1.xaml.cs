@@ -25,15 +25,7 @@ namespace WpfApp4_net6.Views
     {
         public Layout1()
         {
-
             InitializeComponent();
-
-            IProductModel productModel = new ProductModel();
-
-            Layout1ViewModel layout1ViewModel = new Layout1ViewModel(productModel);
-
-            DataContext = layout1ViewModel;
-            
         }
 
        

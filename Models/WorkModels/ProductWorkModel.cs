@@ -11,6 +11,7 @@ namespace WpfApp4_net6.Models.WorkModels
         public int ProductId { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
+        public string Des { get; set; }
         public string HoangMinh { get; set; }
     }
 }

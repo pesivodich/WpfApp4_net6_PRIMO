@@ -21,11 +21,13 @@ namespace WpfApp4_net6.Views
     /// </summary>
     public partial class Layout2 : Window
     {
-        public Layout2()
+        private readonly IWeatherModel _weatherModel;
+        public Layout2(IWeatherModel weatherModel)
         {
             InitializeComponent();
-            
-            IWeatherModel _weatherModel = new WeatherModel();
+            _weatherModel = weatherModel;
+
+            //IWeatherModel _weatherModel = new WeatherModel();
 
             var layout2ViewModel = new Layout2ViewModel(_weatherModel);
 
