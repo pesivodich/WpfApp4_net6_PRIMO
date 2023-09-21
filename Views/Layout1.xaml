@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp4_net6.Views"
         mc:Ignorable="d"
-        Title="Layout1" Height="600" Width="1000">
+        Title="Layout1" Height="700" Width="920">
     <Grid>
         <TextBlock x:Name="Title_1" HorizontalAlignment="Stretch" Margin="0,10,0,0" TextWrapping="Wrap" Text="PRIMO LAYOUT 1" TextAlignment="Center" VerticalAlignment="Top" FontSize="20" Background="#bdd8ff" />
         <Border BorderBrush="Black" BorderThickness="1">
@@ -83,12 +83,12 @@
         </Grid>
 
         <Grid Background="red" Width="150" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750 40 0 0">
-            
+
         </Grid>
         <TextBlock  Background="Green" Text="Button Content" Foreground="White" TextAlignment="Center" Padding="5" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750 280 0 0" />
-         
-        
-        
+
+
+
         <Grid HorizontalAlignment="Left" Height="80" Width="300" Margin="10 240 0 0"  VerticalAlignment="Top" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="24" />
@@ -113,7 +113,7 @@
                     <TextBlock Background="Blue" Foreground="White" Text="Code CD" Margin="0 0 5 0" Grid.Column="0" TextAlignment="Center"/>
                     <TextBox Grid.Column="1"  Background="Yellow"/>
                 </Grid>
-            </Grid> 
+            </Grid>
             <Grid  Grid.Row="2" Margin="0 1 0 0 " >
                 <Grid  Grid.Row="0" >
                     <Grid.ColumnDefinitions>
@@ -125,5 +125,121 @@
                 </Grid>
             </Grid>
         </Grid>
+
+        <Grid Name="" Background="red" Width="30" HorizontalAlignment="Left" Height="280" Margin="10,300,0,10">
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="35"/>
+                <RowDefinition  Height="35"/>
+                <RowDefinition  Height="35"/>
+                <RowDefinition  Height="35"/>
+                <RowDefinition  Height="35"/>
+                <RowDefinition  Height="35"/>
+                <RowDefinition  Height="35"/>
+                <RowDefinition  Height="35"/>
+            </Grid.RowDefinitions>
+
+            <Border  Grid.Row="0" BorderBrush="Black" BorderThickness="1">
+                <TextBlock Background="#cafec6" Text="1" FontWeight="Bold" TextAlignment="Center" Padding="0 8 0 0"/>
+            </Border>
+            <Border  Grid.Row="1" BorderBrush="Black" BorderThickness="1">
+                <TextBlock  Background="#cafec6" Text="2" FontWeight="Bold" TextAlignment="Center" Padding="0 8 0 0"/>
+            </Border>
+            <Border  Grid.Row="2" BorderBrush="Black" BorderThickness="1">
+                <TextBlock  Background="#cafec6" Text="3" FontWeight="Bold" TextAlignment="Center" Padding="0 8 0 0"/>
+            </Border>
+            <Border  Grid.Row="3" BorderBrush="Black" BorderThickness="1">
+                <TextBlock  Background="#cafec6" Text="4" FontWeight="Bold" TextAlignment="Center" Padding="0 8 0 0"/>
+            </Border>
+            <Border  Grid.Row="4" BorderBrush="Black" BorderThickness="1">
+                <TextBlock  Background="#cafec6" Text="5" FontWeight="Bold" TextAlignment="Center" Padding="0 8 0 0"/>
+            </Border>
+            <Border  Grid.Row="5" BorderBrush="Black" BorderThickness="1">
+                <TextBlock  Background="#cafec6" Text="6" FontWeight="Bold" TextAlignment="Center" Padding="0 8 0 0"/>
+            </Border>
+            <Border  Grid.Row="6" BorderBrush="Black" BorderThickness="1">
+                <TextBlock  Background="#cafec6" Text="7" FontWeight="Bold" TextAlignment="Center" Padding="0 8 0 0"/>
+            </Border>
+            <Border  Grid.Row="7" Style="{StaticResource MainBorder}">
+                <TextBlock  Background="#cafec6" Text="8" FontWeight="Bold" TextAlignment="Center" Padding="0 8 0 0"/>
+            </Border>
+        </Grid>
+
+        <Grid Background="#cafec6" Width="800" HorizontalAlignment="Left" Height="25" Margin="40,320,0,337" RenderTransformOrigin="1.4,0.167">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource MainBorder}"  Grid.Column="0">
+                <TextBlock  Text="03/07" Style="{StaticResource CustomTextBlockStyle}" />
+            </Border>
+            <Border Style="{StaticResource MainBorder}"  Grid.Column="1">
+                <TextBlock  Text="03/07" Style="{StaticResource CustomTextBlockStyle}" />
+            </Border>
+            <Border Style="{StaticResource MainBorder}"  Grid.Column="2">
+                <TextBlock  Text="03/07" Style="{StaticResource CustomTextBlockStyle}" />
+            </Border>
+            <Border Style="{StaticResource MainBorder}"  Grid.Column="3">
+                <TextBlock  Text="03/07" Style="{StaticResource CustomTextBlockStyle}" />
+            </Border>
+            <Border Style="{StaticResource MainBorder}"  Grid.Column="4">
+                <TextBlock  Text="03/07" Style="{StaticResource CustomTextBlockStyle}" />
+            </Border>
+            <Border Style="{StaticResource MainBorder}"  Grid.Column="5">
+                <TextBlock  Text="03/07" Style="{StaticResource CustomTextBlockStyle}" />
+            </Border>
+
+            <Border Style="{StaticResource MainBorder}"  Grid.Column="6">
+                <TextBlock  Text="03/07" Style="{StaticResource CustomTextBlockStyle}" />
+            </Border>
+
+
+        </Grid>
+
+        <ScrollViewer Background="Red" Width="815" Height="281" Margin="40,346,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Background="BlueViolet">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="4*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock />
+
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Height="25" Width="530" Margin="160,630,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource MainBorder}" Grid.Column="0" Margin="0 0 20 0">
+                <TextBlock Style="{StaticResource TextBlockBLue}"  Text="Bottom " />
+            </Border>
+            <Border Style="{StaticResource MainBorder}" Grid.Column="1">
+                <TextBlock Style="{StaticResource TextYellow}" />
+            </Border>
+        </Grid>
+
+        <Button Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 20 200 5" Content="Button1"/>
+
+        <Button Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 70 5" Content="Button2"/>
     </Grid>
 </Window>
