@@ -26,7 +26,6 @@
     <Folder Include="Resources\" />
     <Folder Include="Services\" />
     <Folder Include="Untils\" />
-    <Folder Include="UserControls\" />
   </ItemGroup>
 
 </Project>

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp4_net6.Views"
         mc:Ignorable="d"
-        Title="Layout2" Height="450" Width="800">
+        Title="Layout2" Height="800" Width="920">
     <Grid>
+     
     </Grid>
 </Window>
