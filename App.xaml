@@ -26,20 +26,28 @@
             <Setter Property="FontSize" Value="10" />
         </Style>
 
-        <Style x:Key="TextYellow" TargetType="TextBlock">
+        <Style x:Key="TextBlockYellow" TargetType="TextBlock">
             <Setter Property="Background" Value="#fcfea8" />
             <Setter Property="TextAlignment" Value="Center" />
             <Setter Property="Padding" Value="0 5 0 0" />
             <Setter Property="FontSize" Value="10" />
         </Style>
 
-
-        <Style x:Key="TextYellow" TargetType="Button">
+        <Style x:Key="TxtBlockYl" TargetType="TextBlock">
             <Setter Property="Background" Value="#fcfea8" />
             <Setter Property="TextAlignment" Value="Center" />
-            <Setter Property="Padding" Value="0 5 0 0" />
-            <Setter Property="FontSize" Value="10" />
         </Style>
+
+        <Style x:Key="Btn_End" TargetType="Button">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Top" />
+            
+          
+        </Style>
+        <!--<Button Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 680 200 5" Content="Button1"/>-->
+
 
     </Application.Resources>
 </Application>

@@ -12,9 +12,9 @@ namespace WpfApp4_net6.ViewModels
     public class Layout1ViewModel
     {
        
-        public string Title { get; set; }   
+        public string Title { get; set; }
 
-        public ObservableCollection<Product> products { get; set; }
+        private ObservableCollection<Product> products { get; set; }
 
         public Layout1ViewModel ()
         {

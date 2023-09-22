@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp4_net6.Views"
         mc:Ignorable="d"
-        Title="Layout1" Height="700" Width="920">
+        Title="Layout1" Height="800" Width="920">
     <Grid>
         <TextBlock x:Name="Title_1" HorizontalAlignment="Stretch" Margin="0,10,0,0" TextWrapping="Wrap" Text="PRIMO LAYOUT 1" TextAlignment="Center" VerticalAlignment="Top" FontSize="20" Background="#bdd8ff" />
         <Border BorderBrush="Black" BorderThickness="1">
@@ -126,7 +126,7 @@
             </Grid>
         </Grid>
 
-        <Grid Name="" Background="red" Width="30" HorizontalAlignment="Left" Height="280" Margin="10,300,0,10">
+        <Grid Width="30" HorizontalAlignment="Left" Height="280" Margin="10,350,0,10" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition  Height="35"/>
                 <RowDefinition  Height="35"/>
@@ -164,7 +164,7 @@
             </Border>
         </Grid>
 
-        <Grid Background="#cafec6" Width="800" HorizontalAlignment="Left" Height="25" Margin="40,320,0,337" RenderTransformOrigin="1.4,0.167">
+        <Grid Background="#cafec6" Width="800" HorizontalAlignment="Left" Height="25" Margin="40,320,0,337" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -234,12 +234,21 @@
                 <TextBlock Style="{StaticResource TextBlockBLue}"  Text="Bottom " />
             </Border>
             <Border Style="{StaticResource MainBorder}" Grid.Column="1">
-                <TextBlock Style="{StaticResource TextYellow}" />
+                <TextBlock Style="{StaticResource TxtBlockYl}"/>
             </Border>
         </Grid>
 
-        <Button Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 20 200 5" Content="Button1"/>
+        <!--<Button Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 680 200 5" Content="Button1"/>-->
+        <Grid Width="337" Height="27" Margin="588,673,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button  Style="{StaticResource Btn_End}" Content="Button End 1" Grid.Column="0" />
+            <Button  Style="{StaticResource Btn_End}" Content="Button End 1" Grid.Column="1"/>
 
-        <Button Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 70 5" Content="Button2"/>
+        </Grid>
+
+        <!--<Button Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 70 5" Content="Button2"/>-->
     </Grid>
 </Window>
