@@ -5,10 +5,66 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp4_net6.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="440">
     <Grid Background="White">
         <TextBlock Style="{StaticResource TextBlockBLue2}" Width="120" Height="30" Margin="10" Text="Button 1" />
 
         <CheckBox Content="Is Selected" IsChecked="True" Width="120" Height="30" Margin="150 20" VerticalAlignment="Top" HorizontalAlignment="Left" />
+
+        <Grid Background="red" Margin="280 10 0 0" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+                <RadioButton Content="Option 1" Grid.Column="0" Selector.IsSelected="True"/>
+                <RadioButton Content="Option 2" Grid.Column="1"/>
+        </Grid>
+        <ListView ItemsSource="{Binding YourDataItems}" Margin="10 50 10 0">
+            <ListView.View>
+                <GridView>
+                    <!-- Cột hiển thị checkbox -->
+                    <GridViewColumn Header="IsSelected" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="A" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Các cột khác ở đây -->
+                    <GridViewColumn Header="Title 1" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                     <GridViewColumn Header="Title 1" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                     <GridViewColumn Header="Title 1" Width="30">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="IsSelected" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
