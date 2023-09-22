@@ -23,11 +23,22 @@ namespace WpfApp4_net6.Views
     /// </summary>
     public partial class Layout1 : Window
     {
+        
         public Layout1()
         {
             InitializeComponent();
+
+            DataContext = new Layout1ViewModel();
+         
         }
 
        
+    }
+
+    public class People
+    {
+        public string Name { get; set; }    
+        public int Age { get; set; }
+        public string Address { get; set; }
     }
 }

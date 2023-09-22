@@ -60,14 +60,14 @@ namespace WpfApp4_net6
         protected override async void OnStartup(StartupEventArgs e)
         {
 
-            //var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
-            //    .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-            //    .Options;
+            var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
+                .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+                .Options;
 
-            //using (var context = new AppDbContext(dbContextOptions))
-            //{
-            //    context.Database.EnsureCreated();
-            //}
+            using (var context = new AppDbContext(dbContextOptions))
+            {
+                context.Database.EnsureCreated();
+            }
 
             base.OnStartup(e);
 

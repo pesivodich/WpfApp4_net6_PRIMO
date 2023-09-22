@@ -48,6 +48,16 @@
         </Style>
         <!--<Button Width="100" Height="20" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 680 200 5" Content="Button1"/>-->
 
+        <Style x:Key="ListViewNoHeader" TargetType="GridViewColumnHeader">
+            <Setter Property="FrameworkElement.Visibility" Value="Collapsed" />
+        </Style>
 
+        <Style x:Key="TxtBoxMini" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="TextAlignment" Value="Center" />
+            <Setter Property="Padding" Value="0 0 0 0" />
+            <Setter Property="FontSize" Value="9" />
+        </Style>
+        
     </Application.Resources>
 </Application>

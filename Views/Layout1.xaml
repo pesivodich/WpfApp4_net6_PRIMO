@@ -15,15 +15,36 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Stretch" Background="#014099" Text="Title 1" TextAlignment="Center" Foreground="White" Grid.Row="0"/>
-                <ListView Grid.Row="1" Height="170" ItemsSource="{Binding People}"  Background="Green">
-                    <GridView>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                        <!-- Cột 1: Name -->
-                        <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}" />
-                        <!-- Cột 2: Age -->
-                        <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Address}" />
-                        <!-- Cột 3: Address -->
-                    </GridView>
+                <ListView Grid.Row="1" Height="170"  Name="listView" ItemsSource="{Binding Peoples}">
+                    
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
+                           
+                            <GridViewColumn Width="100" Header="">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="100" Header="">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Age}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="100" >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Address}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                        </GridView>
+                    </ListView.View>
+                        
                 </ListView>
             </Grid>
         </Border>
@@ -35,8 +56,20 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Stretch" Background="#014099" Text="Title 2" TextAlignment="Center" Foreground="White"/>
-                <ListView Grid.Row="1" Height="250">
+                <ListView Grid.Row="1" Height="250" ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
 
+                            <GridViewColumn  >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Address}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                        </GridView>
+                    </ListView.View>
                 </ListView>
             </Grid>
         </Border>
@@ -72,18 +105,356 @@
             </Grid.ColumnDefinitions>
             <Border  BorderBrush="Black" BorderThickness="1" Margin="0 0 1 0" Grid.Column="0">
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
+                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                        </Border>
+                        <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
+                        <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
+                            <TextBlock.TextDecorations>
+                                <TextDecoration Location="Underline">
+                                    <TextDecoration.Pen>
+                                        <Pen Brush="Black">
+                                            <Pen.DashStyle>
+                                                <DashStyle Dashes="5"/>
+                                            </Pen.DashStyle>
+                                        </Pen>
+                                    </TextDecoration.Pen>
+                                </TextDecoration>
+                            </TextBlock.TextDecorations>
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Row="1" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
+                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                        </Border>
+                        <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
+                        <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
+                            <TextBlock.TextDecorations>
+                                <TextDecoration Location="Underline">
+                                    <TextDecoration.Pen>
+                                        <Pen Brush="Black">
+                                            <Pen.DashStyle>
+                                                <DashStyle Dashes="5"/>
+                                            </Pen.DashStyle>
+                                        </Pen>
+                                    </TextDecoration.Pen>
+                                </TextDecoration>
+                            </TextBlock.TextDecorations>
+                        </TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="2" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
+                            <TextBlock Text="F4" Foreground="White" TextAlignment="Center"/>
+                        </Border>
+                        <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
+                        <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
+                            <TextBlock.TextDecorations>
+                                <TextDecoration Location="Underline">
+                                    <TextDecoration.Pen>
+                                        <Pen Brush="Black">
+                                            <Pen.DashStyle>
+                                                <DashStyle Dashes="5"/>
+                                            </Pen.DashStyle>
+                                        </Pen>
+                                    </TextDecoration.Pen>
+                                </TextDecoration>
+                            </TextBlock.TextDecorations>
+                        </TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="3" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
+                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                        </Border>
+                        <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
+                        <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
+                            <TextBlock.TextDecorations>
+                                <TextDecoration Location="Underline">
+                                    <TextDecoration.Pen>
+                                        <Pen Brush="Black">
+                                            <Pen.DashStyle>
+                                                <DashStyle Dashes="5"/>
+                                            </Pen.DashStyle>
+                                        </Pen>
+                                    </TextDecoration.Pen>
+                                </TextDecoration>
+                            </TextBlock.TextDecorations>
+                        </TextBlock>
+                    </Grid>
+                     <Grid Grid.Row="4" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
+                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                        </Border>
+                        <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
+                        <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
+                            <TextBlock.TextDecorations>
+                                <TextDecoration Location="Underline">
+                                    <TextDecoration.Pen>
+                                        <Pen Brush="Black">
+                                            <Pen.DashStyle>
+                                                <DashStyle Dashes="5"/>
+                                            </Pen.DashStyle>
+                                        </Pen>
+                                    </TextDecoration.Pen>
+                                </TextDecoration>
+                            </TextBlock.TextDecorations>
+                        </TextBlock>
+                    </Grid>
+                     <Grid Grid.Row="5" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
+                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                        </Border>
+                        <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
+                        <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
+                            <TextBlock.TextDecorations>
+                                <TextDecoration Location="Underline">
+                                    <TextDecoration.Pen>
+                                        <Pen Brush="Black">
+                                            <Pen.DashStyle>
+                                                <DashStyle Dashes="5"/>
+                                            </Pen.DashStyle>
+                                        </Pen>
+                                    </TextDecoration.Pen>
+                                </TextDecoration>
+                            </TextBlock.TextDecorations>
+                        </TextBlock>
+                    </Grid>
+                    <Grid Grid.Row="6" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
+                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                        </Border>
+                        
+                        <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
+                        <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
+                                <TextBlock.TextDecorations>
+                                    <TextDecoration Location="Underline">
+                                        <TextDecoration.Pen>
+                                            <Pen Brush="Black">
+                                                <Pen.DashStyle>
+                                                    <DashStyle Dashes="5"/>
+                                                </Pen.DashStyle>
+                                            </Pen>
+                                        </TextDecoration.Pen>
+                                    </TextDecoration>
+                                </TextBlock.TextDecorations>
+                            </TextBlock>
+                      
+                    </Grid>
 
                 </Grid>
             </Border>
             <Border  BorderBrush="Black" BorderThickness="1"  Grid.Column="1">
-                <Grid>
+                <ListView Grid.Row="1" Height="250" ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
 
-                </Grid>
+                            <GridViewColumn  >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}">
+                                            <TextBlock.TextDecorations>
+                                                <TextDecoration Location="Underline">
+                                                    <TextDecoration.Pen>
+                                                        <Pen>
+                                                            <Pen.Brush>
+                                                                <DrawingBrush Viewport="0,0,10,10"
+                                                                              ViewportUnits="Absolute"
+                                                                              TileMode="Tile">              
+                                                                    <DrawingBrush.Drawing>
+                                                                        <GeometryDrawing Brush="Black">
+                                                                            <GeometryDrawing.Geometry>
+                                                                                <GeometryGroup>
+                                                                                    <RectangleGeometry Rect="0,0,5,5" />
+                                                                                    <RectangleGeometry Rect="5,5,5,5" />
+                                                                                </GeometryGroup>
+                                                                            </GeometryDrawing.Geometry>
+                                                                        </GeometryDrawing>
+                                                                    </DrawingBrush.Drawing>
+                                                                </DrawingBrush>
+                                                            </Pen.Brush>
+                                                        </Pen>
+                                                    </TextDecoration.Pen>
+                                                </TextDecoration>
+                                            </TextBlock.TextDecorations>
+                                        </TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </Border>
         </Grid>
 
-        <Grid Background="red" Width="150" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750 40 0 0">
+        <Grid Width="150" Height="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750 40 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
+
+            <Border Grid.Row="0"  Style="{StaticResource MainBorder}" Margin="0 0 0 5">
+                <TextBlock   Background="#cafec6" Text="" />
+            </Border>
+            
+                <Grid  Height="175"  Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="0 0 4 0"  Background="#cafec6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="1" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="1" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="2" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="2" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="3" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="3" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="4" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="4" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="5" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="5" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="6" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="6" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="7" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="7" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="8" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="8" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="9" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="9" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="10" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="10" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="11" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="11" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="12" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1"  Background="#cafec6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="1" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="1" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="2" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="2" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="3" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="3" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="4" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="4" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="5" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="5" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="6" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="6" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="7" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="7" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="8" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="8" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="9" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="9" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="10" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="10" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="11" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                    <Border Grid.Row="11" Style="{StaticResource MainBorder}">
+                        <TextBlock Text="12" Style="{StaticResource TxtBoxMini}" />
+                    </Border>
+                </Grid>
+            </Grid>
+           
         </Grid>
         <TextBlock  Background="Green" Text="Button Content" Foreground="White" TextAlignment="Center" Padding="5" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750 280 0 0" />
 
@@ -212,15 +583,85 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" Background="BlueViolet">
+                
+                <Grid Grid.Column="0" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="4*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock />
-
+                    
+                    <Grid Grid.Column="0" Background="#dce6f1">
+                        
+                    </Grid>
+                    <Grid Grid.Column="1" Background="#dce6f1">
+                        
+                    </Grid>
                 </Grid>
+                <ListView Grid.Column="0"  ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ListView Grid.Column="1"  ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ListView Grid.Column="2"  ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ListView Grid.Column="3"  ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ListView Grid.Column="4"  ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <ListView Grid.Column="5"  ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>  
+                <ListView Grid.Column="6"  ItemsSource="{Binding Peoples}">
+                    <ListView.View>
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
             </Grid>
         </ScrollViewer>
 
