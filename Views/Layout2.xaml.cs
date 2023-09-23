@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp4_net6.Repository;
 using WpfApp4_net6.ViewModels;
+using WpfApp4_net6.UserControls;
 
 namespace WpfApp4_net6.Views
 {
