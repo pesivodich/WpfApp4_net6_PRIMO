@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="WpfApp4_net6.UserControls.TopLeftControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp4_net6.UserControls"
+             mc:Ignorable="d" 
+             FontSize="20"
+             d:DesignHeight="300" d:DesignWidth="400" Background="White">
+    <Grid>
+        
+        <StackPanel>
+            <TextBlock Text="Left Button" Background="Blue" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 10 0 10" Foreground="White" Padding="5"/>
+            <RadioButton Content="Option 1" Name="radioButton1" />
+            <RadioButton Content="Option 2" Name="radioButton2" />
+            <RadioButton Content="Option 3" Name="radioButton3" />
+            <RadioButton Content="Option 4" Name="radioButton4" />
+            <RadioButton Content="Option 5" Name="radioButton5" />
+            <RadioButton Content="Option 6" Name="radioButton6" Foreground="red"/>
+            <RadioButton Content="Option 7" Name="radioButton7" Foreground="Red"/>
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

@@ -7,19 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="440">
     <Grid Background="White">
-        <TextBlock Style="{StaticResource TextBlockBLue2}" Width="120" Height="30" Margin="10" Text="Button 1" />
+        <TextBlock Style="{StaticResource TextBlockBLue2}" Width="120" Height="30" Margin="10,24,0,0" Text="Button 1" />
 
-        <CheckBox Content="Is Selected" IsChecked="True" Width="120" Height="30" Margin="150 20" VerticalAlignment="Top" HorizontalAlignment="Left" />
-
-        <Grid Background="red" Margin="280 10 0 0" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <CheckBox Content="Is Selected" IsChecked="True" Width="120" Height="30" Margin="150,27,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+        <TextBlock Text="AAA" Margin="285 10 0 0 "/>
+        <Grid Margin="280,27,0,0" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="17*"/>
+                <ColumnDefinition Width="58*"/>
+                <ColumnDefinition Width="75*"/>
             </Grid.ColumnDefinitions>
-                <RadioButton Content="Option 1" Grid.Column="0" Selector.IsSelected="True"/>
-                <RadioButton Content="Option 2" Grid.Column="1"/>
+            <RadioButton Content="Option 1" Grid.Column="0" Selector.IsSelected="True" Grid.ColumnSpan="2" />
+            <RadioButton Content="Option 2" Grid.Column="2"/>
         </Grid>
-        <ListView ItemsSource="{Binding YourDataItems}" Margin="10 50 10 0">
+        <ListView ItemsSource="{Binding YourDataItems}" Margin="10 70 10 0">
             <ListView.View>
                 <GridView>
                     <!-- Cột hiển thị checkbox -->
@@ -39,14 +40,14 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                     <GridViewColumn Header="Title 1" Width="100">
+                    <GridViewColumn Header="Title 1" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock  />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                     <GridViewColumn Header="Title 1" Width="30">
+                    <GridViewColumn Header="Title 1" Width="30">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock  />
