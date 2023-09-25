@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp4_net6.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="400" Background="White" FontSize="15">
+             d:DesignHeight="350" d:DesignWidth="400" Background="White" FontSize="15">
     <Grid>
         <TextBlock Text="Bottom Left Layout 2" Style="{StaticResource TextBlockBLue}" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 "/>
         <Border Style="{StaticResource MainBorder}"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="200" Margin="10 50 0 0" >
@@ -56,6 +56,15 @@
             </Grid>
         </Border>
         <TextBlock  Text="One" Style="{StaticResource TextBlockBLue}" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,255,0,0" />
-        
+        <Border Style="{StaticResource SecondBorder}"  Width="180" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,280,0,0" Height="30"  Padding="5" Opacity="0.8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <RadioButton Grid.Column="0" Content="Radio 1" FontSize="12"/>
+                <RadioButton  Grid.Column="1" Content="Radio Button" FontSize="12" Margin="3 0 0 0"/>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

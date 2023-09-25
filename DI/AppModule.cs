@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using WpfApp4_net6.DataModel;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
+using WpfApp4_net6.ViewModels;
 
 namespace WpfApp4_net6.DI
 {
@@ -30,7 +31,7 @@ namespace WpfApp4_net6.DI
             builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerLifetimeScope();
             builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
-            
+            builder.RegisterType<TableShowDataViewModel>();
         }
     }
 }

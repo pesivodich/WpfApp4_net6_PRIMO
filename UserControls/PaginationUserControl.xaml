@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="WpfApp4_net6.UserControls.PaginationUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp4_net6.UserControls"
+                xmlns:fa5="http://schemas.fontawesome.com/icons/" xmlns:fa51="http://schemas.fontawesome.io/icons/"
+             mc:Ignorable="d" 
+             
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel Orientation="Horizontal"
+                Height="20" 
+                HorizontalAlignment="Center">
+
+            <Button 
+            Background="Transparent" 
+                BorderThickness="0" 
+                BorderBrush="Transparent" >
+                <Button.Content>
+                    <fa51:ImageAwesome Icon="AngleDoubleLeft" Foreground="#FF1A94FF"/>
+                </Button.Content>
+
+            </Button>
+
+            <Button Style="{StaticResource BtnNoBorder}">
+                <Button.Content>
+                    <fa51:ImageAwesome Icon="AngleLeft" Foreground="#FF1A94FF"/>
+                </Button.Content>
+            </Button>
+
+            <Button 
+            Content="1" 
+            Width="20"/>
+            <Button 
+            Content="2" Width="20"/>
+            <Button Content="3" Width="20"/>
+            <Button Content="4" Width="20"/>
+            <Button Content="5" Width="20"/>
+            <Button Style="{StaticResource BtnNoBorder}">
+                <Button.Content>
+                    <fa51:ImageAwesome Icon="AngleRight" Foreground="#FF1A94FF"/>
+                </Button.Content>
+            </Button>
+            <Button Style="{StaticResource BtnNoBorder}">
+                <Button.Content>
+                    <fa51:ImageAwesome Icon="AngleDoubleRight" Foreground="#FF1A94FF"/>
+                </Button.Content>
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

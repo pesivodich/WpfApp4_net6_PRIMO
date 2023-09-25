@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="440">
     <Grid Background="White">
-        <TextBlock Style="{StaticResource TextBlockBLue2}" Width="120" Height="30" Margin="10,24,0,0" Text="Button 1" />
+        <TextBlock Style="{StaticResource TextBlockBLue2}" Width="120" Height="30" Margin="10,24,0,0" Text="{Binding TitleTableShow }"  />
 
         <CheckBox Content="Is Selected" IsChecked="True" Width="120" Height="30" Margin="150,27,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <TextBlock Text="AAA" Margin="285 10 0 0 "/>

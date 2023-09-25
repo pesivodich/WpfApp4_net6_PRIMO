@@ -9,14 +9,16 @@ namespace WpfApp4_net6.ViewModels
 {
     public class Layout2ViewModel
     {
-        private readonly IWeatherModel _weatherModel;
+        private readonly IUnitOfWork _unitOfWork;
         
-        public string Description_2 { get; set; }
-        public Layout2ViewModel(IWeatherModel weatherModel) 
-        {
-            _weatherModel = weatherModel;
+        public TableShowDataViewModel TableShowDataViewModel { get; }
 
-            Description_2 =  _weatherModel.GetWeatherDetail();
+        public string Description_2 { get; set; }
+        public Layout2ViewModel(IUnitOfWork unitOfWork) 
+        {
+            _unitOfWork = unitOfWork;
+            TableShowDataViewModel = new TableShowDataViewModel(_unitOfWork);
+            Description_2 = _unitOfWork.Products.GetFirst().Name + "Layout 2";
 
         }
     }

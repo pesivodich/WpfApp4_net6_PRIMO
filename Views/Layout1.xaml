@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp4_net6.Views"
         mc:Ignorable="d"
+        xmlns:userctrl="clr-namespace:WpfApp4_net6.UserControls"
         Title="Layout1" Height="800" Width="920">
     <Grid>
         <TextBlock x:Name="Title_1" HorizontalAlignment="Stretch" Margin="0,10,0,0" TextWrapping="Wrap" Text="PRIMO LAYOUT 1" TextAlignment="Center" VerticalAlignment="Top" FontSize="20" Background="#bdd8ff" />
@@ -686,9 +687,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button  Style="{StaticResource Btn_End}" Content="Button End 1" Grid.Column="0" />
-            <Button  Style="{StaticResource Btn_End}" Content="Button End 1" Grid.Column="1"/>
+            <Button  Style="{StaticResource Btn_End}" Content="Button End 2" Grid.Column="1"/>
 
         </Grid>
+
+        <userctrl:PaginationUserControl Margin="-35,303,35,-303" />
+
 
         <!--<Button Width="100" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 70 5" Content="Button2"/>-->
     </Grid>

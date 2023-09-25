@@ -10,7 +10,7 @@
     <Grid>
         <TextBlock x:Name="Title_1" HorizontalAlignment="Stretch" Margin="0,10,0,0" TextWrapping="Wrap" Text="PRIMO LAYOUT 2" TextAlignment="Center" VerticalAlignment="Top" FontSize="20" Background="#bdd8ff" />
 
-        <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="460,54,0,0" Width="450" Height="700">
+        <Grid  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="460,54,0,0" Width="450" Height="650" DataContext="{Binding TableShowDataViewModel}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="85*"/>
                 <RowDefinition Height="191*"/>
@@ -23,10 +23,12 @@
             <views:TopLeftControl />
         </Grid>
         <TextBlock  Text=" Content Promo" Margin="10 340 0 0" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 380 0 0" Height="600" Width="400" >
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10 380 0 0" Height="350" Width="400" >
             <views:BottomLeftControl />
         </Grid>
 
+        <Button Width="136" Height="30" Style="{StaticResource Btn_End}" Content="Print (P)" FontSize="20" Margin="460,730,0,24" />
+        <Button Width="136" Height="30" Style="{StaticResource Btn_End}" Content="Export (E)" FontSize="20" Margin="750,730,0,24" />
 
         <!--<views:TableShowData Margin="0,58,0,141"/>-->
     </Grid>

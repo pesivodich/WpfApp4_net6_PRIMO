@@ -17,21 +17,29 @@ using System.Windows.Shapes;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
 using WpfApp4_net6.Views;
-//using tblProduct = WpfApp4_net6.Repository.Product;á
 using WpfApp4_net6.Models.WorkModels;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using WpfApp4_net6.ViewModels;
 
 namespace WpfApp4_net6
 {
+   
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+
+
+        private readonly IUnitOfWork _unitOfWork;
+      
+
+        public MainWindow(IUnitOfWork unitOfWork)
         {
-        
+            _unitOfWork = unitOfWork;
             InitializeComponent();
+         
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -39,5 +47,12 @@ namespace WpfApp4_net6
             Layout1 layout = new Layout1();
             layout.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Layout2 layout2 = new Layout2(_unitOfWork);
+            layout2.Show();
+        }
+      
     }
 }
