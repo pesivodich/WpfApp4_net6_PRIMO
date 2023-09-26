@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp4_net6.Helper;
 using WpfApp4_net6.Models;
+using WpfApp4_net6.Models.WorkModels;
 using WpfApp4_net6.Repository;
 
 namespace WpfApp4_net6.ViewModels
@@ -18,6 +19,35 @@ namespace WpfApp4_net6.ViewModels
 
     public class MainViewModel : ViewModelBase
     {
+        private string nameInput;
+
+        public string NameInput 
+        { 
+            get
+            {
+                return nameInput;
+            }
+            set
+            {
+                nameInput = value;
+                OnPropertyChanged(nameof(NameInput));
+
+            }
+
+        }
+        public string DesInput 
+        { 
+            get
+            {
+                return desInput;
+            }
+            set
+            {
+                desInput = value;
+                OnPropertyChanged(nameof(DesInput));
+            }
+        }
+
 
         private readonly IUnitOfWork _unitOfWork;
         private ObservableCollection<TestModel> testModel { get; set; }
@@ -36,6 +66,8 @@ namespace WpfApp4_net6.ViewModels
         }
 
         private TestTable selectedListItem;
+        private string desInput;
+
         public TestTable SelectedListItem
         {
             get { return selectedListItem; }
@@ -67,6 +99,8 @@ namespace WpfApp4_net6.ViewModels
         public ICommand AddNewUserCmd { get; set; }
         public ICommand GetSelectedItemCommand { get; private set; }
 
+        public ICommand UpdateItemCommand { get; set; }
+
         public MainViewModel(IUnitOfWork unitOfWork) 
         {
             _unitOfWork = unitOfWork;
@@ -77,14 +111,26 @@ namespace WpfApp4_net6.ViewModels
 
 
             AddNewUserCmd = new DelegateCommand(AddNewuser, canUser);
-            GetSelectedItemCommand = new DelegateCommand(GetSelectedItem);
+            GetSelectedItemCommand = new DelegateCommand(DeleteItem);
+
+            UpdateItemCommand = new DelegateCommand(UpdateItem);
 
         }
 
-        private void GetSelectedItem()
+        private void DeleteItem() 
         {
             int selectTest = SelectedListItem.Id;
             _unitOfWork.TestRepository.RemoveProduct(selectTest);
+            TestTables = new ObservableCollection<TestTable>(_unitOfWork.TestRepository.GetList());
+        }
+
+        private void UpdateItem()
+        {
+            int selectTest = SelectedListItem.Id;
+            var selectUpdate = _unitOfWork.TestRepository.GetFirst(selectTest);
+            NameInput = selectUpdate.Name;
+            DesInput = selectUpdate.Des;
+
             TestTables = new ObservableCollection<TestTable>(_unitOfWork.TestRepository.GetList());
 
         }
@@ -96,7 +142,8 @@ namespace WpfApp4_net6.ViewModels
 
         private void AddNewuser()
         {
-            _unitOfWork.TestRepository.AddNewProduct();
+            TestWorkModel input = new TestWorkModel() { Name = NameInput, Des = DesInput };
+            _unitOfWork.TestRepository.AddNewProduct(input);
             TestTables = new ObservableCollection<TestTable>(_unitOfWork.TestRepository.GetList());
 
         }

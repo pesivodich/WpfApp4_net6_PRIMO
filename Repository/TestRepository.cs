@@ -11,9 +11,13 @@ namespace WpfApp4_net6.Repository
     public interface ITestRepository
     {
         List<TestTable> GetList();
-        int AddNewProduct();
+        int AddNewProduct(TestWorkModel input);
 
         int RemoveProduct(int Id);
+
+        int UpdateProduct(int Id, TestWorkModel input);
+
+        TestTable GetFirst(int Id);
     }
     public class TestRepository : BaseRepository, ITestRepository
     {
@@ -30,13 +34,14 @@ namespace WpfApp4_net6.Repository
             return restult;
         }
 
-        public int AddNewProduct()
+        public int AddNewProduct(TestWorkModel input)
         {
-          
+            if (input == null) { return 500; }
+
             _context.Tests.Add(new TestTable() 
             {
-                Name = "Test_11",
-                Des = "Des_22"
+                Name = input.Name,
+                Des = input.Des
             });
             _context.SaveChanges();
 
@@ -51,6 +56,22 @@ namespace WpfApp4_net6.Repository
             _context.SaveChanges();
 
             return 200;
+        }
+
+        public int UpdateProduct (int Id, TestWorkModel input)
+        {
+            var EntityUpdate = _context.Tests.FirstOrDefault(x => x.Id == Id);
+            EntityUpdate.Name = input.Name;
+            EntityUpdate.Des = input.Des;
+            _context.SaveChanges(); 
+
+            return 200;
+        }
+
+        public TestTable GetFirst(int Id)
+        {
+            return _context.Tests.FirstOrDefault( x=> x.Id == Id );
+        
         }
     }
 }
