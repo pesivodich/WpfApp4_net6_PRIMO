@@ -10,6 +10,36 @@
         <TextBlock x:Name="txtHoangMinh"  Text=" "/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click" />
         <Button Content="Button Layout2" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click_1" />
+
+        <ListView Width="200" 
+                  Height="300" 
+                  Margin="37,67,563,67" 
+                  ItemsSource="{Binding TestTables}"
+                  SelectedItem="{Binding SelectedListItem}"
+                  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Des}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button 
+            Width="80" 
+            Height="30" 
+            Content="Add" 
+            Margin="258,88,462,316" 
+            Command="{Binding AddNewUserCmd}"
+            />
+
+        <Button 
+        Width="80" 
+        Height="30" 
+        Content="remove" 
+        Margin="258,133,462,271" 
+        Command="{Binding GetSelectedItemCommand}"
+        />
     </Grid>
         
 </Window>

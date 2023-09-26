@@ -21,6 +21,8 @@ namespace WpfApp4_net6.DataModel
         public DbSet<User> Users { get; set; }
         public DbSet<UserInfo> UserInfo { get; set; }
 
+        public DbSet<TestTable> Tests { get; set; }
+
       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

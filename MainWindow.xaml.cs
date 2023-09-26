@@ -41,7 +41,7 @@ namespace WpfApp4_net6
         {
             _unitOfWork = unitOfWork;
             InitializeComponent();
-          
+            DataContext = new MainViewModel(_unitOfWork);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

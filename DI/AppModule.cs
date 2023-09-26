@@ -35,6 +35,7 @@ namespace WpfApp4_net6.DI
             builder.RegisterType<ProductRepository>().As<IProductRepository>().InstancePerLifetimeScope();
             builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.RegisterType<TestRepository>().As<ITestRepository>().InstancePerLifetimeScope();
         }
     }
 }

@@ -12,6 +12,8 @@ namespace WpfApp4_net6.Repository
     {
         IProductRepository Products { get; }
         IUserRepository Users { get; }
+
+        ITestRepository TestRepository { get; }
         void SaveChanges();
     }
 
@@ -22,10 +24,13 @@ namespace WpfApp4_net6.Repository
         {
             Products = new ProductRepository();
             Users = new UserRepository();
+            TestRepository = new TestRepository();  
         }
 
         public IProductRepository Products { get; private set; }
         public IUserRepository Users { get; private set; }
+
+        public ITestRepository TestRepository { get; private set; }
 
         public void SaveChanges()
         {
