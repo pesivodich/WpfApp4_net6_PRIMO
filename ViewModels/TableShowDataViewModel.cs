@@ -11,12 +11,12 @@ namespace WpfApp4_net6.ViewModels
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public string TitleTableShow { get; set; }
+        public string TitleTableShow { get; set; } = "Button 1";
         public TableShowDataViewModel (IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
 
-            TitleTableShow = _unitOfWork.Products.GetFirst().Name + "Layout 2";
+            TitleTableShow = _unitOfWork.Products.GetFirst().Name;
         }
     }
 }

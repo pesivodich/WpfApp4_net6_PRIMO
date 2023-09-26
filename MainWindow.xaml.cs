@@ -21,6 +21,8 @@ using WpfApp4_net6.Models.WorkModels;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using WpfApp4_net6.ViewModels;
+using WpfApp4_net6.Services;
+using WpfApp4_net6.DataModel;
 
 namespace WpfApp4_net6
 {
@@ -31,15 +33,15 @@ namespace WpfApp4_net6
     public partial class MainWindow : Window
     {
 
-
         private readonly IUnitOfWork _unitOfWork;
       
-
-        public MainWindow(IUnitOfWork unitOfWork)
+        public MainWindow(
+            IUnitOfWork unitOfWork
+            )
         {
             _unitOfWork = unitOfWork;
             InitializeComponent();
-         
+          
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

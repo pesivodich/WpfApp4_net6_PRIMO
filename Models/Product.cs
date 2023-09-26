@@ -9,11 +9,8 @@ namespace WpfApp4_net6.Models
 
 {
   
-    public class Product
+    public class Product : TableHaveIdInt, ITable
     {
-        [Key]
-        public int ProductId { get; set; }
-
         [Required]
         public string Name { get; set; }
 
@@ -22,7 +19,14 @@ namespace WpfApp4_net6.Models
 
         public string Des { get; set; }
 
-        public string HoangMinh { get; set; }
+        public string Username { get; set; }
+        public DateTimeOffset CreatedAt { get; set; }
+        public int CreatedBy { get; set; }
+        public string CreatedIp { get; set; }
+        public DateTimeOffset? UpdatedAt { get; set; }
+        public int? UpdatedBy { get; set; }
+        public string UpdatedIp { get; set; }
+        public bool DelFlag {   get; set; }
     }
 
 }

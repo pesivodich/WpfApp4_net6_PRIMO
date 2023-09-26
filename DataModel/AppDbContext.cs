@@ -11,8 +11,7 @@ namespace WpfApp4_net6.DataModel
 {
     public class AppDbContext : DbContext
     {
-        string connectionString = "server=localhost;port=3306;database=netcore_3;user=root;password=;";
-
+        string connectionString = "server=localhost;port=3306;database=netcore_4;user=root;password=;";
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
@@ -92,10 +91,10 @@ namespace WpfApp4_net6.DataModel
 
                                             root.CreatedAt = root.CreatedAt.ToString("yyyy") == "0001" ? now : root.CreatedAt;
                                             //root.CreatedBy = root.CreatedBy > 0 ? root.CreatedBy : accountId;
-                                            //root.CreatedIp = ip;
+                                            root.CreatedIp = "1";
                                             root.UpdatedAt = null;
                                             root.UpdatedBy = null;
-                                            root.UpdatedIp = null;
+                                            root.UpdatedIp = "1";
                                             root.DelFlag = false;
                                             break;
                                         }

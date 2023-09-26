@@ -45,8 +45,8 @@ namespace WpfApp4_net6.Models
 
     /// <summary>
     /// Bảng có khóa chính là kiểu int và tự động tăng.
-    /// <para>Author: QuyPN</para>
-    /// <para>Created: 13/02/2020</para>
+    /// <para>Author: SonNC</para>
+    /// <para>Created: 20/09/2023</para>
     /// </summary>
     public class TableHaveIdInt
     {

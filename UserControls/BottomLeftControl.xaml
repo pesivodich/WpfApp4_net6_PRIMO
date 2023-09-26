@@ -7,9 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="350" d:DesignWidth="400" Background="White" FontSize="15">
     <Grid>
-        <TextBlock Text="Bottom Left Layout 2" Style="{StaticResource TextBlockBLue}" Width="100" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 "/>
-        <Border Style="{StaticResource MainBorder}"  VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" Height="200" Margin="10 50 0 0" >
-            <Grid>
+        <TextBlock Text="Bottom Left Layout 2" Style="{StaticResource TextBlockBLue}" Width="117" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0"/>
+        <Border Style="{StaticResource MainBorder}"  VerticalAlignment="Top" HorizontalAlignment="Center" Width="380" Height="215" Margin="0,50,0,0" >
+            <Grid Height="216" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition  Height="40"/>
                     <RowDefinition  Height="40"/>
@@ -23,7 +23,7 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Height="20"  Margin="10" Text="Content 1" Grid.Column="0" />
-                    <TextBox  Grid.Column="1" Width="100" Margin="10 0 0 0" Height="20"/>
+                    <TextBox  Grid.Column="1" Margin="10,10,-298,10" Height="20"/>
                 </Grid>
 
                 <Grid Grid.Row="1" >
@@ -32,7 +32,7 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Height="20"  Margin="10" Text="Content 1" Grid.Column="0" />
-                    <ComboBox  Grid.Column="1" Width="100" Margin="10 0 0 0" Height="20">
+                    <ComboBox  Grid.Column="1" Margin="10,10,-298,10" Height="20">
                         <ComboBoxItem Content="Option 1" />
                         <ComboBoxItem Content="Option 2" />
                         <ComboBoxItem Content="Option 3" />
@@ -48,15 +48,15 @@
                     <TextBox Grid.Column="1" Width="30" Height="30" Margin="10 0 0 0" />
                 </Grid>
                 <Grid Grid.Row="3" >
-                    <TextBlock Text="One" Style="{StaticResource TextBlockBLue}" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 0 0 0"/>
-                    <RichTextBox  Margin="5 20 5 0" Height="50"/>
+                    <TextBlock Text="One" Style="{StaticResource TextBlockBLue}" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 0 0 0" Height="28"/>
+                    <RichTextBox  Margin="10,35,10,-15" Height="50"/>
                 </Grid>
 
 
             </Grid>
         </Border>
-        <TextBlock  Text="One" Style="{StaticResource TextBlockBLue}" Width="70" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,255,0,0" />
-        <Border Style="{StaticResource SecondBorder}"  Width="180" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,280,0,0" Height="30"  Padding="5" Opacity="0.8">
+        <TextBlock  Text="One" Style="{StaticResource TextBlockBLue}" Width="90" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,270,0,0" Height="22" />
+        <Border Style="{StaticResource SecondBorder}"  Width="180" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,297,0,0" Height="30"  Padding="5" Opacity="0.8">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />

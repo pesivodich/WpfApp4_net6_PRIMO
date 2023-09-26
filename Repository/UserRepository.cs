@@ -14,22 +14,14 @@ namespace WpfApp4_net6.Repository
     }
     public class UserRepository : BaseRepository, IUserRepository
     {
-        //private readonly AppDbContext _context;
-        string connectionString = "server=localhost;port=3306;database=netcore_2;user=root;password=;";
-
         public UserRepository()
         {
-            //var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
-            //   .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-            //   .Options;
-
-
-            //_context = new AppDbContext(dbContextOptions);
+          
         }
 
         public string GetUser()
         {
-            return _context.Products.FirstOrDefault().Des + "Tu Lop Users";
+            return _context.Products.FirstOrDefault().Des;
         }
 
     }

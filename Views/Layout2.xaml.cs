@@ -28,8 +28,6 @@ namespace WpfApp4_net6.Views
             InitializeComponent();
             _unitOfWork = unitOfWork;
 
-            //IWeatherModel _weatherModel = new WeatherModel();
-
             var layout2ViewModel = new Layout2ViewModel(_unitOfWork);
 
             DataContext = layout2ViewModel;

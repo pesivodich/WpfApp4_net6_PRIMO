@@ -18,7 +18,6 @@ namespace WpfApp4_net6.ViewModels
         {
             _unitOfWork = unitOfWork;
             TableShowDataViewModel = new TableShowDataViewModel(_unitOfWork);
-            Description_2 = _unitOfWork.Products.GetFirst().Name + "Layout 2";
 
         }
     }

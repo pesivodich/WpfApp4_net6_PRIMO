@@ -29,16 +29,8 @@ namespace WpfApp4_net6.Views
             InitializeComponent();
 
             DataContext = new Layout1ViewModel();
-         
         }
-
        
     }
 
-    public class People
-    {
-        public string Name { get; set; }    
-        public int Age { get; set; }
-        public string Address { get; set; }
-    }
 }

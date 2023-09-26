@@ -8,9 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock x:Name="txtHoangMinh"  Text=" "/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="346,177,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click" />
-        <Button Content="Button Layout2" HorizontalAlignment="Left" Margin="482,177,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click_1" />
-
+        <Button Content="Button" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click" />
+        <Button Content="Button Layout2" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click_1" />
     </Grid>
-    
+        
 </Window>

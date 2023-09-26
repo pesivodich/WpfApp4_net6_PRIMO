@@ -28,10 +28,11 @@ namespace WpfApp4_net6.Repository
         {
             List<ProductWorkModel> restult = _context.Products.Select( x=> new ProductWorkModel() 
             {
-                ProductId = x.ProductId,
+                Id = x.Id,
                 Name = x.Name,
+                Description = x.Des,
                 Price = x.Price,
-                HoangMinh = x.HoangMinh
+                Username = x.Username
             }
             ).ToList();
 
@@ -42,10 +43,9 @@ namespace WpfApp4_net6.Repository
         {
             ProductWorkModel restult = _context.Products.Select(x => new ProductWorkModel()
             {
-                ProductId = x.ProductId,
                 Name = x.Name,
                 Price = x.Price,
-                HoangMinh = x.HoangMinh
+                Username = x.Username
             }
            ).First();
 
@@ -69,11 +69,10 @@ namespace WpfApp4_net6.Repository
 
             tblProduct newProduct = new tblProduct()
             {
-                ProductId = product.ProductId,
                 Name = product.Name,    
                 Price = product.Price,
-                Des = product.Des,
-                HoangMinh = product.HoangMinh
+                Des = product.Description,
+                Username = product.Username
             };
 
             _context.Products.Add(newProduct);

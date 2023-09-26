@@ -17,7 +17,7 @@ using System.Windows;
 using WpfApp4_net6.DataModel;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
-
+using WpfApp4_net6.Services;
 
 namespace WpfApp4_net6
 {
@@ -29,9 +29,9 @@ namespace WpfApp4_net6
         /// <summary>
         /// Khởi tạo AppHost để đăng ký các dịch vụ và thực hiện DI
         /// <para>Created at: 19/09/2023</para>
-        /// <para>Created by: Sonnc</para>
+        /// <para>Created by: SonNC</para>
         /// </summary> 
-        string connectionString = "server=localhost;port=3306;database=netcore_2;user=root;password=;";
+        string connectionString = "server=localhost;port=3306;database=netcore_4;user=root;password=;";
         public static IHost? AppHost { get; private set; }
         public App()
         {
@@ -43,31 +43,13 @@ namespace WpfApp4_net6
                     services.AddDbContext<AppDbContext>(options =>
                          options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
                          , ServiceLifetime.Transient);
-                    services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-
                 })
                 .Build();
         }
-     
-
-        //public void ConfigureContainer(ContainerBuilder containerBuilder)
-        //{
-        //    containerBuilder.RegisterModule(new DI.AppModule());
-        //    //var builder = new ContainerBuilder();
-        //    //builder.RegisterType<DataAccess>().As<IDataAccess>().InstancePerLifetimeScope();
-        //}
+    
         protected override async void OnStartup(StartupEventArgs e)
         {
-
-            var dbContextOptions = new DbContextOptionsBuilder<AppDbContext>()
-                .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-                .Options;
-
-            using (var context = new AppDbContext(dbContextOptions))
-            {
-                context.Database.EnsureCreated();
-            }
+            await AppHost!.StartAsync();
 
             base.OnStartup(e);
 
@@ -75,20 +57,18 @@ namespace WpfApp4_net6
 
             builder.RegisterModule(new DI.AppModule());
 
-            // Add the MainWindowclass and later resolve
+            // Add the MainWindow class and later resolve
             builder.RegisterType<MainWindow>().AsSelf();
-
+           
             //builder.RegisterType<MainWindow>().AsSelf();
-
             var container = builder.Build();
 
-            using (var scope = container.BeginLifetimeScope())
-            {
-                var window = scope.Resolve<MainWindow>();
-              
+            var scope = container.BeginLifetimeScope();
 
-                window.Show();
-            }
+            var window = scope.Resolve<MainWindow>();
+
+            window.Show();
+
 
         }
     }
