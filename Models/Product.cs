@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WpfApp4_net6.Models
 
 {
-  
+    [Table("Products")]
+
     public class Product : TableHaveIdInt, ITable
     {
         [Required]

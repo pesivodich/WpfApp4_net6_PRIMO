@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp4_net6.Models
 {
     [Table("UserInfos")]
-    public partial class UserInfo : TableHaveIdInt, ITable
+    public class UserInfo : TableHaveIdInt, ITable
     {
         public int UserInfoId { get; set; }
      

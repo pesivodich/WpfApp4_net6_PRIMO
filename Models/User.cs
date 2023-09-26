@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace WpfApp4_net6.Models
 {
     [Table("Users")]
-    public partial class User : TableHaveIdInt, ITable
+    public class User : TableHaveIdInt, ITable
     {
         public User()
         {

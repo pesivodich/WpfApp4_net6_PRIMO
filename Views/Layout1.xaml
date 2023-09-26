@@ -147,7 +147,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
-                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock Text="F3" Foreground="White" TextAlignment="Center"/>
                         </Border>
                         <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
                         <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
@@ -171,7 +171,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
-                            <TextBlock Text="F4" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock Text="F6" Foreground="White" TextAlignment="Center"/>
                         </Border>
                         <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
                         <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
@@ -195,7 +195,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
-                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock Text="F7" Foreground="White" TextAlignment="Center"/>
                         </Border>
                         <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
                         <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
@@ -219,7 +219,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
-                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock Text="F9" Foreground="White" TextAlignment="Center"/>
                         </Border>
                         <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
                         <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
@@ -243,7 +243,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
-                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock Text="F12" Foreground="White" TextAlignment="Center"/>
                         </Border>
                         <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
                         <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
@@ -267,7 +267,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
-                            <TextBlock Text="F1" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock Text="Del" Foreground="White" TextAlignment="Center"/>
                         </Border>
                         
                         <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
@@ -340,8 +340,8 @@
             </Grid.RowDefinitions>
 
 
-            <Border Grid.Row="0"  Style="{StaticResource MainBorder}" Margin="0 0 0 5">
-                <TextBlock   Background="#cafec6" Text="" />
+            <Border Grid.Row="0"  Style="{StaticResource MainBorder}" Margin="0 0 0 2">
+                <TextBlock   Background="#cafec6" Text="Text Block Header"  TextAlignment="Center" FontWeight="Bold" Height="30"/>
             </Border>
             
                 <Grid  Height="175"  Grid.Row="1" >
@@ -498,7 +498,7 @@
             </Grid>
         </Grid>
 
-        <Grid Width="30" HorizontalAlignment="Left" Height="280" Margin="10,350,0,10" VerticalAlignment="Top">
+        <Grid Width="30" HorizontalAlignment="Left" Height="280" Margin="10,345,0,10" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition  Height="35"/>
                 <RowDefinition  Height="35"/>
