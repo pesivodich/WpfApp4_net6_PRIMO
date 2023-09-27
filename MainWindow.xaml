@@ -8,15 +8,17 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock x:Name="txtHoangMinh"  Text=" "/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click" />
+        <Button Content="Button"
+                HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click" />
         <Button Content="Button Layout2" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click_1" />
 
         <ListView Width="200" 
                   Height="300" 
-                  Margin="37,67,563,67" 
+                  Margin="10,50,0,0" 
                   ItemsSource="{Binding TestTables}"
                   SelectedItem="{Binding SelectedListItem}"
-                  >
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Id}" />
@@ -29,7 +31,9 @@
             Width="80" 
             Height="30" 
             Content="Add" 
-            Margin="258,88,462,316" 
+            Margin="250,100,00,0"
+             VerticalAlignment="Top"
+             HorizontalAlignment="Left"
             Command="{Binding AddNewUserCmd}"
             />
 
@@ -37,20 +41,44 @@
         Width="80" 
         Height="30" 
         Content="remove" 
-        Margin="258,133,462,271" 
+        Margin="250,150,00,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
         Command="{Binding GetSelectedItemCommand}"
         />
 
         <Button 
           Width="80" 
           Height="30" 
-          Content="Update" 
-          Margin="258,187,462,217" 
-          Command="{Binding UpdateItemCommand}"
+          Content="Seleted item" 
+  Margin="250,200,00,0"
+   VerticalAlignment="Top"
+   HorizontalAlignment="Left"
+            Command="{Binding SeletedItemUpdate}"
           />
 
-        <TextBox Width="200" Height="40" Margin="370,83,230,311" Text="{Binding NameInput}" />
-        <TextBox Width="200" Height="40" Margin="370,133,230,261"  Text="{Binding DesInput}"/>
+        <TextBox Width="200" Height="40" 
+                 Margin="370,80,0,0"
+                  VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                 Text="{Binding NameInput}" />
+        <TextBox Width="200" Height="40" Margin="370,133,0,0" 
+                  VerticalAlignment="Top"
+   HorizontalAlignment="Left"
+                 Text="{Binding DesInput}"/>
+        <Button 
+            Width="80" 
+            Height="30" 
+            Content="Update" 
+            Margin="490,239,0,0" 
+            VerticalAlignment="Top"
+    HorizontalAlignment="Left"
+            Command="{Binding UpdateItemCommand}"
+          />
+        <TextBox Width="200" Height="40" Margin="370,190,0,0" 
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Text="{Binding TestInput}"/>
     </Grid>
         
 </Window>

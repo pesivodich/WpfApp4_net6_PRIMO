@@ -41,7 +41,8 @@ namespace WpfApp4_net6.Repository
             _context.Tests.Add(new TestTable() 
             {
                 Name = input.Name,
-                Des = input.Des
+                Des = input.Des,
+                Test = input.Test
             });
             _context.SaveChanges();
 
@@ -63,6 +64,7 @@ namespace WpfApp4_net6.Repository
             var EntityUpdate = _context.Tests.FirstOrDefault(x => x.Id == Id);
             EntityUpdate.Name = input.Name;
             EntityUpdate.Des = input.Des;
+            EntityUpdate.Test = input.Test;
             _context.SaveChanges(); 
 
             return 200;

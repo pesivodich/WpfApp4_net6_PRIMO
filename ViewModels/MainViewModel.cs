@@ -12,14 +12,12 @@ using WpfApp4_net6.Repository;
 
 namespace WpfApp4_net6.ViewModels
 {
-    public class TestModel 
-    {
-        public string name { get; set; }    
-    }
-
+  
     public class MainViewModel : ViewModelBase
     {
         private string nameInput;
+
+        private int SeletedId;
 
         public string NameInput 
         { 
@@ -48,25 +46,26 @@ namespace WpfApp4_net6.ViewModels
             }
         }
 
-
-        private readonly IUnitOfWork _unitOfWork;
-        private ObservableCollection<TestModel> testModel { get; set; }
-
-        public ObservableCollection<TestModel> TestModel 
+        public string TestInput 
         {
             get
             {
-               return testModel;
+                return testInput;
             }
             set
             {
-                testModel = value;
-                OnPropertyChanged(nameof(TestModel));
+                testInput = value;
+                OnPropertyChanged(nameof(TestInput));
             }
         }
 
+
+        private readonly IUnitOfWork _unitOfWork;
+  
+
         private TestTable selectedListItem;
         private string desInput;
+        private string testInput;
 
         public TestTable SelectedListItem
         {
@@ -77,6 +76,14 @@ namespace WpfApp4_net6.ViewModels
                 {
                     selectedListItem = value;
                     OnPropertyChanged(nameof(SelectedListItem));
+
+                    if (selectedListItem != null)
+                    {
+                        SeletedId = SelectedListItem.Id;
+                        selectedItem();
+                    }
+
+                    
                 }
             }
         }
@@ -99,6 +106,7 @@ namespace WpfApp4_net6.ViewModels
         public ICommand AddNewUserCmd { get; set; }
         public ICommand GetSelectedItemCommand { get; private set; }
 
+        public ICommand SeletedItemUpdate { get; set; }
         public ICommand UpdateItemCommand { get; set; }
 
         public MainViewModel(IUnitOfWork unitOfWork) 
@@ -113,23 +121,46 @@ namespace WpfApp4_net6.ViewModels
             AddNewUserCmd = new DelegateCommand(AddNewuser, canUser);
             GetSelectedItemCommand = new DelegateCommand(DeleteItem);
 
-            UpdateItemCommand = new DelegateCommand(UpdateItem);
+            SeletedItemUpdate = new DelegateCommand(selectedItem);
+
+            UpdateItemCommand = new DelegateCommand(UpdateItem, canUpdate);
+
+        }
+
+        private bool canUpdate()
+        {
+            if(SeletedId != 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void UpdateItem()
+        {
+            var updateItem = new TestWorkModel();
+             updateItem.Name = NameInput;
+            updateItem.Des = DesInput;
+            updateItem.Test = TestInput;
+
+            _unitOfWork.TestRepository.UpdateProduct(SeletedId, updateItem);
+            TestTables = new ObservableCollection<TestTable>(_unitOfWork.TestRepository.GetList());
 
         }
 
         private void DeleteItem() 
         {
-            int selectTest = SelectedListItem.Id;
-            _unitOfWork.TestRepository.RemoveProduct(selectTest);
+            _unitOfWork.TestRepository.RemoveProduct(SeletedId);
             TestTables = new ObservableCollection<TestTable>(_unitOfWork.TestRepository.GetList());
         }
 
-        private void UpdateItem()
+        private void selectedItem()
         {
-            int selectTest = SelectedListItem.Id;
-            var selectUpdate = _unitOfWork.TestRepository.GetFirst(selectTest);
+          
+            var selectUpdate = _unitOfWork.TestRepository.GetFirst(SeletedId);
             NameInput = selectUpdate.Name;
             DesInput = selectUpdate.Des;
+            TestInput = selectUpdate.Test;
 
             TestTables = new ObservableCollection<TestTable>(_unitOfWork.TestRepository.GetList());
 
@@ -142,7 +173,7 @@ namespace WpfApp4_net6.ViewModels
 
         private void AddNewuser()
         {
-            TestWorkModel input = new TestWorkModel() { Name = NameInput, Des = DesInput };
+            TestWorkModel input = new TestWorkModel() { Name = NameInput, Des = DesInput, Test = TestInput };
             _unitOfWork.TestRepository.AddNewProduct(input);
             TestTables = new ObservableCollection<TestTable>(_unitOfWork.TestRepository.GetList());
 
