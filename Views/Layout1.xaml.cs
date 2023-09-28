@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
+using WpfApp4_net6.Services.IServices;
 using WpfApp4_net6.ViewModels;
 
 namespace WpfApp4_net6.Views
@@ -23,12 +24,13 @@ namespace WpfApp4_net6.Views
     /// </summary>
     public partial class Layout1 : Window
     {
-        
-        public Layout1()
+        private readonly ICalendarServices _calendarServices;
+        public Layout1(ICalendarServices calendarServices)
         {
+            _calendarServices = calendarServices;
             InitializeComponent();
 
-            DataContext = new Layout1ViewModel();
+            DataContext = new Layout1ViewModel(_calendarServices);
         }
        
     }

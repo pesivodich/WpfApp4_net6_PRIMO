@@ -12,18 +12,27 @@
                 HorizontalAlignment="Left" Margin="110,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click" />
         <Button Content="Button Layout2" HorizontalAlignment="Left" Margin="183,10,0,0" VerticalAlignment="Top" Height="28" Width="54" Click="Button_Click_1" />
 
-        <ListView Width="200" 
+        <ListView Width="283" 
                   Height="300" 
                   Margin="10,50,0,0" 
                   ItemsSource="{Binding TestTables}"
                   SelectedItem="{Binding SelectedListItem}"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top">
+               <ListView.Resources>
+                <Style TargetType="{x:Type GridViewColumnHeader}">
+                       <Setter Property="BorderThickness" Value="1"/>
+                       <Setter Property="BorderBrush" Value="Black"/>
+                   </Style>
+               </ListView.Resources>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Id}" />
+
+                  
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" />
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Des}" />
+                    <GridViewColumn Header="Des" DisplayMemberBinding="{Binding Des}" />
+                    <GridViewColumn Header="Test" DisplayMemberBinding="{Binding Test}" />
                 </GridView>
             </ListView.View>
         </ListView>
@@ -31,7 +40,7 @@
             Width="80" 
             Height="30" 
             Content="Add" 
-            Margin="250,100,00,0"
+            Margin="310,100,0,0"
              VerticalAlignment="Top"
              HorizontalAlignment="Left"
             Command="{Binding AddNewUserCmd}"
@@ -41,7 +50,7 @@
         Width="80" 
         Height="30" 
         Content="remove" 
-        Margin="250,150,00,0"
+        Margin="310,143,0,0"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
         Command="{Binding GetSelectedItemCommand}"
@@ -51,18 +60,18 @@
           Width="80" 
           Height="30" 
           Content="Seleted item" 
-  Margin="250,200,00,0"
+  Margin="310,200,0,0"
    VerticalAlignment="Top"
    HorizontalAlignment="Left"
             Command="{Binding SeletedItemUpdate}"
           />
 
         <TextBox Width="200" Height="40" 
-                 Margin="370,80,0,0"
+                 Margin="418,80,0,0"
                   VerticalAlignment="Top"
                     HorizontalAlignment="Left"
                  Text="{Binding NameInput}" />
-        <TextBox Width="200" Height="40" Margin="370,133,0,0" 
+        <TextBox Width="200" Height="40" Margin="418,133,0,0" 
                   VerticalAlignment="Top"
    HorizontalAlignment="Left"
                  Text="{Binding DesInput}"/>
@@ -70,15 +79,16 @@
             Width="80" 
             Height="30" 
             Content="Update" 
-            Margin="490,239,0,0" 
+            Margin="538,235,0,0" 
             VerticalAlignment="Top"
     HorizontalAlignment="Left"
             Command="{Binding UpdateItemCommand}"
           />
-        <TextBox Width="200" Height="40" Margin="370,190,0,0" 
+        <TextBox Width="200" Height="40" Margin="418,190,0,0" 
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Text="{Binding TestInput}"/>
+
     </Grid>
         
 </Window>

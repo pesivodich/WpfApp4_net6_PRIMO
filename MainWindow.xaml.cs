@@ -23,6 +23,7 @@ using System.Collections.ObjectModel;
 using WpfApp4_net6.ViewModels;
 using WpfApp4_net6.Services;
 using WpfApp4_net6.DataModel;
+using WpfApp4_net6.Services.IServices;
 
 namespace WpfApp4_net6
 {
@@ -34,11 +35,13 @@ namespace WpfApp4_net6
     {
 
         private readonly IUnitOfWork _unitOfWork;
-      
+        private readonly ICalendarServices _calendarServices;
         public MainWindow(
             IUnitOfWork unitOfWork
+            , ICalendarServices calendarServices
             )
         {
+            _calendarServices = calendarServices;
             _unitOfWork = unitOfWork;
             InitializeComponent();
             DataContext = new MainViewModel(_unitOfWork);
@@ -46,7 +49,7 @@ namespace WpfApp4_net6
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Layout1 layout = new Layout1();
+            Layout1 layout = new Layout1(_calendarServices);
             layout.Show();
         }
 

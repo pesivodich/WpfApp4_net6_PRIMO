@@ -82,7 +82,6 @@ namespace WpfApp4_net6.ViewModels
                         SeletedId = SelectedListItem.Id;
                         selectedItem();
                     }
-
                     
                 }
             }

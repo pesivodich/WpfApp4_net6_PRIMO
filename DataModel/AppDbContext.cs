@@ -23,6 +23,8 @@ namespace WpfApp4_net6.DataModel
 
         public DbSet<TestTable> Tests { get; set; }
 
+        public DbSet<CalendarDetail> CalendarDetail { get; set; }
+
       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

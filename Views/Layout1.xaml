@@ -9,55 +9,84 @@
         Title="Layout1" Height="800" Width="920">
     <Grid>
         <TextBlock x:Name="Title_1" HorizontalAlignment="Stretch" Margin="0,10,0,0" TextWrapping="Wrap" Text="PRIMO LAYOUT 1" TextAlignment="Center" VerticalAlignment="Top" FontSize="20" Background="#bdd8ff" />
-        <Border BorderBrush="Black" BorderThickness="1">
+        <Border >
             <Grid HorizontalAlignment="Left" Height="200" Width="300" Margin="10 40 10 10" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock HorizontalAlignment="Stretch" Background="#014099" Text="Title 1" TextAlignment="Center" Foreground="White" Grid.Row="0"/>
-                <ListView Grid.Row="1" Height="170"  Name="listView" >
-                    
+                <TextBlock HorizontalAlignment="Stretch" 
+                           Background="#014099" 
+                           Text="Title 1" 
+                           TextAlignment="Center" 
+                           Foreground="White" 
+                           Grid.Row="0"/>
+                <Grid 
+                      Height="170"  
+                        Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Style="{StaticResource MainBorder}" Grid.Column="0" >
+                        
+                    </Border>
+
+                    <Border Style="{StaticResource MainBorder}" Grid.Column="1" >
+
+                    </Border>
+                    <Border Style="{StaticResource MainBorder}" Grid.Column="2" >
+
+                    </Border>
+                </Grid>
+                <ListView Grid.Row="1" 
+                          Height="170"  
+                          Name="listView" 
+                          Background="Transparent"
+                          ItemsSource="{Binding CalendarTimes}"
+                          SelectedItem="{Binding SelectedItem}"
+                          >
+
                     <ListView.View>
-                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
-                           
-                            <GridViewColumn Width="100" Header="">
+                        <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}"  >
+                            <GridViewColumn Width="100" >
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Name}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Width="100" Header="">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Age}" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
                             <GridViewColumn Width="100" >
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Address}" />
+                                        <TextBlock Text="{Binding BeginWeek}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn  >
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding EndWeek}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
 
                         </GridView>
                     </ListView.View>
-                        
+
                 </ListView>
             </Grid>
         </Border>
 
-        <Border BorderBrush="Black" BorderThickness="1" >
-            <Grid HorizontalAlignment="Left" Height="280" Width="200" Margin="320 40 10 10" VerticalAlignment="Top">
+        <Border BorderBrush="Black" BorderThickness="1" Margin="320,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid HorizontalAlignment="Left" Height="280" Width="200"  VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock HorizontalAlignment="Stretch" Background="#014099" Text="Title 2" TextAlignment="Center" Foreground="White"/>
-                <ListView Grid.Row="1" Height="250" >
+                <ListView Grid.Row="1" Height="250"  >
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
 
@@ -212,7 +241,7 @@
                             </TextBlock.TextDecorations>
                         </TextBlock>
                     </Grid>
-                     <Grid Grid.Row="4" >
+                    <Grid Grid.Row="4" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="4*" />
@@ -236,7 +265,7 @@
                             </TextBlock.TextDecorations>
                         </TextBlock>
                     </Grid>
-                     <Grid Grid.Row="5" >
+                    <Grid Grid.Row="5" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="4*" />
@@ -269,22 +298,22 @@
                         <Border Style="{StaticResource MainBorder}" Background="#0e9703" Grid.Column="0">
                             <TextBlock Text="Del" Foreground="White" TextAlignment="Center"/>
                         </Border>
-                        
+
                         <TextBlock Grid.Column="1" Text="Text " TextAlignment="Center"/>
                         <TextBlock Text="This is a really lon" Foreground="Transparent" IsHitTestVisible="False" Padding="0 5 0 0" Grid.Column="1">
-                                <TextBlock.TextDecorations>
-                                    <TextDecoration Location="Underline">
-                                        <TextDecoration.Pen>
-                                            <Pen Brush="Black">
-                                                <Pen.DashStyle>
-                                                    <DashStyle Dashes="5"/>
-                                                </Pen.DashStyle>
-                                            </Pen>
-                                        </TextDecoration.Pen>
-                                    </TextDecoration>
-                                </TextBlock.TextDecorations>
-                            </TextBlock>
-                      
+                            <TextBlock.TextDecorations>
+                                <TextDecoration Location="Underline">
+                                    <TextDecoration.Pen>
+                                        <Pen Brush="Black">
+                                            <Pen.DashStyle>
+                                                <DashStyle Dashes="5"/>
+                                            </Pen.DashStyle>
+                                        </Pen>
+                                    </TextDecoration.Pen>
+                                </TextDecoration>
+                            </TextBlock.TextDecorations>
+                        </TextBlock>
+
                     </Grid>
 
                 </Grid>
@@ -305,7 +334,7 @@
                                                             <Pen.Brush>
                                                                 <DrawingBrush Viewport="0,0,10,10"
                                                                               ViewportUnits="Absolute"
-                                                                              TileMode="Tile">              
+                                                                              TileMode="Tile">
                                                                     <DrawingBrush.Drawing>
                                                                         <GeometryDrawing Brush="Black">
                                                                             <GeometryDrawing.Geometry>
@@ -343,25 +372,25 @@
             <Border Grid.Row="0"  Style="{StaticResource MainBorder}" Margin="0 0 0 2">
                 <TextBlock   Background="#cafec6" Text="Text Block Header"  TextAlignment="Center" FontWeight="Bold" Height="30"/>
             </Border>
-            
-                <Grid  Height="175"  Grid.Row="1" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="4*"/>
-                    </Grid.ColumnDefinitions>
+
+            <Grid  Height="175"  Grid.Row="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0" Margin="0 0 4 0"  Background="#cafec6">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Border Grid.Row="0" Style="{StaticResource MainBorder}">
@@ -455,7 +484,7 @@
                     </Border>
                 </Grid>
             </Grid>
-           
+
         </Grid>
         <TextBlock  Background="Green" Text="Button Content" Foreground="White" TextAlignment="Center" Padding="5" Width="150" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750 280 0 0" />
 
@@ -536,7 +565,7 @@
             </Border>
         </Grid>
 
-        <Grid Background="#cafec6" Width="800" HorizontalAlignment="Left" Height="25" Margin="40,320,0,337" VerticalAlignment="Top">
+        <!--<Grid Background="#cafec6" Width="800" HorizontalAlignment="Left" Height="25" Margin="48,320,0,337" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -571,94 +600,119 @@
             </Border>
 
 
-        </Grid>
+        </Grid>-->
+        <ListView Background="#cafec6" 
+                  Width="800" 
+                  HorizontalAlignment="Left" 
+                  Height="25"   
+                  Margin="48,320,0,337" 
+                  VerticalAlignment="Top"
+                  ItemsSource="{Binding DateTeaching }"
+                   Name="listViewNgang"
+                  
+                  >
+            <ListView.View>
+                <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}" >
+                    <GridViewColumn  Width="112" DisplayMemberBinding="{Binding Monday}" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Hiển thị giá trị trong TextBlock -->
+                                <TextBlock Text="{Binding}" Padding="2 0 2 0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="112" DisplayMemberBinding="{Binding Tuesday }" />
+                    <GridViewColumn  Width="112" DisplayMemberBinding="{Binding Wednesday }" />
+                    <GridViewColumn Width="112" DisplayMemberBinding="{Binding Thursday }" />
+                    <GridViewColumn  Width="112" DisplayMemberBinding="{Binding Friday }" />
+                    <GridViewColumn  Width="112" DisplayMemberBinding="{Binding Saturday}" />
+                    <GridViewColumn  Width="112" DisplayMemberBinding="{Binding Sunday }" />
+                </GridView>
+            </ListView.View>
 
-        <ScrollViewer  Width="815" Height="281" Margin="40,346,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+        </ListView>
+     
+
+
+        <ScrollViewer  Width="815" Height="281" Margin="48,346,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 
-                <Grid Grid.Column="0" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="2*" />
-                        <ColumnDefinition Width="4*" />
-                    </Grid.ColumnDefinitions>
-                    
-                    <Grid Grid.Column="0" Background="#dce6f1">
-                        
-                    </Grid>
-                    <Grid Grid.Column="1" Background="#dce6f1">
-                        
-                    </Grid>
-                </Grid>
-                <ListView Grid.Column="0"  ItemsSource="{Binding Peoples}">
-                    <ListView.View>
+             
+                <ListView Grid.Column="0" ItemsSource="{Binding DataGridMonday}" >
+                    <ListView.View >
                         <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
-                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
-                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Session}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Subject}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding LessonName}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <ListView Grid.Column="1"  ItemsSource="{Binding Peoples}">
+                <ListView Grid.Column="1"  ItemsSource="{Binding DataGridTuesday}">
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
-                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
-                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Session}" />
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Subject}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding LessonName}" />
+
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <ListView Grid.Column="2"  ItemsSource="{Binding Peoples}">
+                <ListView Grid.Column="2"  ItemsSource="{Binding DataGridWednesday}">
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
-                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
-                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Session}" />
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Subject}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding LessonName}" />
+
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <ListView Grid.Column="3"  ItemsSource="{Binding Peoples}">
+                <ListView Grid.Column="3"  ItemsSource="{Binding DataGridThursday}">
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
-                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
-                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                            <GridViewColumn Header="Field 3"  Width="10" DisplayMemberBinding="{Binding Session}" />
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Subject}" />
+                            <GridViewColumn Header="Field 2"  DisplayMemberBinding="{Binding LessonName}" />
+
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <ListView Grid.Column="4"  ItemsSource="{Binding Peoples}">
+                <ListView Grid.Column="4"  ItemsSource="{Binding DataGridFriday}">
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
-                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
-                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Session}" />
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Subject}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding LessonName}" />
+
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <ListView Grid.Column="5"  ItemsSource="{Binding Peoples}">
+                <ListView Grid.Column="5"  ItemsSource="{Binding DataGridSaturday}">
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
-                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
-                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Session}" />
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Subject}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding LessonName}" />
+
                         </GridView>
                     </ListView.View>
-                </ListView>  
-                <ListView Grid.Column="6"  ItemsSource="{Binding Peoples}">
+                </ListView>
+                <ListView Grid.Column="6"  ItemsSource="{Binding DataGridSunday}">
                     <ListView.View>
                         <GridView ColumnHeaderContainerStyle="{StaticResource ListViewNoHeader}">
-                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Name}" />
-                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding Age}" />
-                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Address}" />
+                            <GridViewColumn Header="Field 3"  DisplayMemberBinding="{Binding Session}" />
+                            <GridViewColumn Header="Field 1" Width="20" DisplayMemberBinding="{Binding Subject}" />
+                            <GridViewColumn Header="Field 2" Width="40" DisplayMemberBinding="{Binding LessonName}" />
+
                         </GridView>
                     </ListView.View>
                 </ListView>

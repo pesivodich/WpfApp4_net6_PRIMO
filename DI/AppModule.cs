@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using WpfApp4_net6.DataModel;
 using WpfApp4_net6.Models;
 using WpfApp4_net6.Repository;
+using WpfApp4_net6.Repository.IRepository;
+using WpfApp4_net6.Services;
+using WpfApp4_net6.Services.IServices;
 using WpfApp4_net6.ViewModels;
 
 namespace WpfApp4_net6.DI
@@ -36,6 +39,9 @@ namespace WpfApp4_net6.DI
             builder.RegisterType<UserRepository>().As<IUserRepository>().InstancePerLifetimeScope();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
             builder.RegisterType<TestRepository>().As<ITestRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<CalendarRepository>().As<ICalendarRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<CalendarServices>().As<ICalendarServices>().InstancePerLifetimeScope();
+            builder.RegisterType<IdentityService>().As<IIdentityService>().InstancePerLifetimeScope();
         }
     }
 }
