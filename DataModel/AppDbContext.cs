@@ -22,7 +22,7 @@ namespace WpfApp4_net6.DataModel
         public DbSet<UserInfo> UserInfo { get; set; }
 
         public DbSet<TestTable> Tests { get; set; }
-
+        public DbSet<CalendarTime> CalendarTime { get; set; }
         public DbSet<CalendarDetail> CalendarDetail { get; set; }
 
       

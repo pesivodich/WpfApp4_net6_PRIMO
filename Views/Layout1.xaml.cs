@@ -25,12 +25,14 @@ namespace WpfApp4_net6.Views
     public partial class Layout1 : Window
     {
         private readonly ICalendarServices _calendarServices;
-        public Layout1(ICalendarServices calendarServices)
+        private readonly ICalendarTimeServices _calendarTimeServices;
+        public Layout1(ICalendarServices calendarServices, ICalendarTimeServices calendarTimeServices)
         {
             _calendarServices = calendarServices;
+            _calendarTimeServices = calendarTimeServices;
             InitializeComponent();
 
-            DataContext = new Layout1ViewModel(_calendarServices);
+            DataContext = new Layout1ViewModel(_calendarServices,_calendarTimeServices);
         }
        
     }

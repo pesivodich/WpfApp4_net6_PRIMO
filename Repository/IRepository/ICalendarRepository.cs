@@ -13,7 +13,7 @@ namespace WpfApp4_net6.Repository.IRepository
     {
         public List<tblCalendarDetail> GetList();
         public CalendarDetailWorkModel GetFirst();
-        public int AddNewProduct();
+        public int AddNewProduct(tblCalendarDetail newCalendar);
         string GetTitle();
     }
 }

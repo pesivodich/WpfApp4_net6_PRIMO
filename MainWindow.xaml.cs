@@ -36,20 +36,24 @@ namespace WpfApp4_net6
 
         private readonly IUnitOfWork _unitOfWork;
         private readonly ICalendarServices _calendarServices;
+        private readonly ICalendarTimeServices _calendarTimeServices;
         public MainWindow(
             IUnitOfWork unitOfWork
             , ICalendarServices calendarServices
+            , ICalendarTimeServices calendarTimeServices
+
             )
         {
             _calendarServices = calendarServices;
             _unitOfWork = unitOfWork;
             InitializeComponent();
             DataContext = new MainViewModel(_unitOfWork);
+            _calendarTimeServices = calendarTimeServices;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Layout1 layout = new Layout1(_calendarServices);
+            Layout1 layout = new Layout1(_calendarServices, _calendarTimeServices);
             layout.Show();
         }
 

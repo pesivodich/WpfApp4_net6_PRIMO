@@ -8,6 +8,9 @@ using WpfApp4_net6.Services.IServices;
 using WpfApp4_net6.Models.WorkModels;
 using WpfApp4_net6.Models.WorkModels.CalendarWorkModel;
 using System.Windows.Markup;
+using WpfApp4_net6.Migrations;
+using tblCalendarDetail = WpfApp4_net6.Models.CalendarDetail;
+
 
 namespace WpfApp4_net6.Services
 {
@@ -80,9 +83,18 @@ namespace WpfApp4_net6.Services
           return   _unitOfWork.CalendarRepository.GetTitle();
         }
 
-        public int AddNewDemo()
+        public int AddNewDemo(CalendarWorkModel input)
         {
-            _unitOfWork.CalendarRepository.AddNewProduct();
+
+
+            tblCalendarDetail newItem = new tblCalendarDetail()
+            { 
+                Subject = input.Subject,
+                LessonName = input.LessonName,
+                Session = input.Session,
+                Schedule = DateTimeOffset.Now
+            };
+            _unitOfWork.CalendarRepository.AddNewProduct(newItem);
             return 200;
         }
             

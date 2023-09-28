@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp4_net6.Models.WorkModels.CalendarWorkModel
 {
-    public class CalendarTime
+    public class CalendarTimeWorkModel
     {
         public string Name { get; set; }
         public string BeginWeek { get; set; }

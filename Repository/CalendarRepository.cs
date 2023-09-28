@@ -34,28 +34,12 @@ namespace WpfApp4_net6.Repository
             return res;
         }
 
-        public int AddNewProduct()
+        public int AddNewProduct(tblCalendarDetail newCalendar)
         {
-            CalendarDetailWorkModel newItem = new CalendarDetailWorkModel();
-            newItem.Subject = "Subject 1";
-            newItem.LessonName = "Lession Name";
-            newItem.Session = 1;
-            newItem.Schedule = DateTime.Now.AddDays(1);
-
-            if (newItem == null)
+            if (newCalendar == null)
             {
                 return 500;
             }
-
-            tblCalendarDetail newCalendar = new tblCalendarDetail()
-            { 
-                Subject = newItem.Subject,
-                LessonName = newItem.LessonName,
-                Session =   newItem.Session,
-                Schedule = newItem.Schedule
-            };
-
-
             _context.CalendarDetail.Add(newCalendar);
             _context.SaveChanges();
 

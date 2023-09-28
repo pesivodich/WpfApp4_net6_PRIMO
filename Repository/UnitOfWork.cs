@@ -16,6 +16,7 @@ namespace WpfApp4_net6.Repository
 
         ITestRepository TestRepository { get; }
         ICalendarRepository CalendarRepository { get; }
+        ICalendarTimeRepository CalendarTimeRepo { get; }
         void SaveChanges();
     }
 
@@ -27,13 +28,15 @@ namespace WpfApp4_net6.Repository
             Products = new ProductRepository();
             Users = new UserRepository();
             TestRepository = new TestRepository();
-            CalendarRepository = new CalendarRepository();  
+            CalendarRepository = new CalendarRepository();
+            CalendarTimeRepo = new CalendarTimeRepository();  
         }
 
         public IProductRepository Products { get; private set; }
         public IUserRepository Users { get; private set; }
         public ITestRepository TestRepository { get; private set; }
         public ICalendarRepository CalendarRepository { get; private set; }
+        public ICalendarTimeRepository CalendarTimeRepo { get; private set; }
 
         public void SaveChanges()
         {

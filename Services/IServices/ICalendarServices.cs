@@ -13,7 +13,7 @@ namespace WpfApp4_net6.Services.IServices
     {
         string GetDemo();
 
-        int AddNewDemo();
+        int AddNewDemo(CalendarWorkModel input);
 
         List<ListOfCalendar> GetList();
         List<CalendarWorkModel> GetAllData();

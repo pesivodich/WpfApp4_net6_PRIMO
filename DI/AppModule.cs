@@ -42,6 +42,8 @@ namespace WpfApp4_net6.DI
             builder.RegisterType<CalendarRepository>().As<ICalendarRepository>().InstancePerLifetimeScope();
             builder.RegisterType<CalendarServices>().As<ICalendarServices>().InstancePerLifetimeScope();
             builder.RegisterType<IdentityService>().As<IIdentityService>().InstancePerLifetimeScope();
+            builder.RegisterType<CalendarTimeRepository>().As<ICalendarTimeRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<CalendarTimeService>().As<ICalendarTimeServices>().InstancePerLifetimeScope();
         }
     }
 }
